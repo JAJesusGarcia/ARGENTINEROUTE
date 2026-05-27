@@ -4,8 +4,11 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { MapPin, Home, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "@/lib/i18n/context";
 
 export default function NotFound() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-4">
       <motion.div
@@ -41,7 +44,7 @@ export default function NotFound() {
           transition={{ delay: 0.4 }}
           className="text-2xl font-bold text-foreground mb-4"
         >
-          Destino no encontrado
+          {t.notFound.title}
         </motion.h2>
 
         {/* Description */}
@@ -51,8 +54,7 @@ export default function NotFound() {
           transition={{ delay: 0.5 }}
           className="text-muted-foreground mb-8"
         >
-          Parece que este camino no lleva a ningún lado. Pero no te preocupes,
-          Argentina tiene muchos otros destinos increíbles para explorar.
+          {t.notFound.description}
         </motion.p>
 
         {/* Buttons */}
@@ -68,7 +70,7 @@ export default function NotFound() {
           >
             <Link href="/">
               <Home className="mr-2 w-4 h-4" />
-              Volver al inicio
+              {t.notFound.backHome}
             </Link>
           </Button>
           <Button
@@ -78,7 +80,7 @@ export default function NotFound() {
           >
             <Link href="/lugares">
               <ArrowLeft className="mr-2 w-4 h-4 transition-transform group-hover:-translate-x-1" />
-              Explorar destinos
+              {t.notFound.explorePlaces}
             </Link>
           </Button>
         </motion.div>

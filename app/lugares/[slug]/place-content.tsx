@@ -15,6 +15,7 @@ import Link from "next/link";
 import { PageHero } from "@/components/sections/page-hero";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useTranslation } from "@/lib/i18n/context";
 import type { Place } from "@/data/places";
 
 interface PlaceContentProps {
@@ -22,6 +23,8 @@ interface PlaceContentProps {
 }
 
 export function PlaceContent({ place }: PlaceContentProps) {
+  const { t, locale } = useTranslation();
+
   const placeImages = [
     "1506905925346-21bda4d32df4",
     "1601042879364-f3947d07bea6",
@@ -46,7 +49,7 @@ export function PlaceContent({ place }: PlaceContentProps) {
         tagline={place.provinceName}
         backgroundImage={heroImage}
         showBreadcrumb
-        breadcrumbLabel={`Volver a ${place.provinceName}`}
+        breadcrumbLabel={`${t.placeDetail.backToPlaces.split(" ")[0]} ${place.provinceName}`}
         breadcrumbHref={`/provincias/${place.provinceSlug}`}
       />
 
@@ -117,7 +120,7 @@ export function PlaceContent({ place }: PlaceContentProps) {
               className="mb-12"
             >
               <h2 className="text-2xl font-bold text-foreground mb-6">
-                Galería
+                {t.placeDetail.gallery}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {[0, 1, 2].map((i) => (
@@ -151,7 +154,7 @@ export function PlaceContent({ place }: PlaceContentProps) {
                   <History className="w-5 h-5 text-primary" />
                 </div>
                 <h3 className="font-semibold text-foreground text-lg">
-                  Historia
+                  {t.placeDetail.history}
                 </h3>
               </div>
               <p className="text-muted-foreground leading-relaxed">
@@ -174,7 +177,7 @@ export function PlaceContent({ place }: PlaceContentProps) {
                     <CheckCircle2 className="w-5 h-5 text-primary" />
                   </div>
                   <h3 className="font-semibold text-foreground text-lg">
-                    Actividades
+                    {t.placeDetail.activities}
                   </h3>
                 </div>
                 <ul className="space-y-3">
@@ -203,7 +206,7 @@ export function PlaceContent({ place }: PlaceContentProps) {
                     <Lightbulb className="w-5 h-5 text-accent" />
                   </div>
                   <h3 className="font-semibold text-foreground text-lg">
-                    Recomendaciones
+                    {t.placeDetail.tips}
                   </h3>
                 </div>
                 <ul className="space-y-3">
@@ -230,18 +233,21 @@ export function PlaceContent({ place }: PlaceContentProps) {
             >
               <MapPin className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-2xl font-bold text-foreground mb-2">
-                ¿Querés visitar {place.name}?
+                {locale === "es"
+                  ? `¿Querés visitar ${place.name}?`
+                  : `Want to visit ${place.name}?`}
               </h3>
               <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-                Contactanos para incluir este destino en tu próximo viaje por
-                Argentina.
+                {locale === "es"
+                  ? "Contactanos para incluir este destino en tu próximo viaje por Argentina."
+                  : "Contact us to include this destination in your next trip to Argentina."}
               </p>
               <Button
                 asChild
                 className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 group"
               >
                 <Link href="/contacto">
-                  Consultar disponibilidad
+                  {locale === "es" ? "Consultar disponibilidad" : "Check availability"}
                   <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>

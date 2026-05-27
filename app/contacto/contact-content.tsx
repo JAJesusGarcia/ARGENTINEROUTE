@@ -8,31 +8,33 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
-
-const contactInfo = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: "info@argentineroute.com",
-    href: "mailto:info@argentineroute.com",
-  },
-  {
-    icon: Phone,
-    label: "Teléfono",
-    value: "+54 341 555 0123",
-    href: "tel:+543415550123",
-  },
-  {
-    icon: MapPin,
-    label: "Ubicación",
-    value: "Rosario, Santa Fe, Argentina",
-    href: null,
-  },
-];
+import { useTranslation } from "@/lib/i18n/context";
 
 export function ContactContent() {
+  const { t, locale } = useTranslation();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  const contactInfo = [
+    {
+      icon: Mail,
+      label: t.contact.emailLabel,
+      value: "info@argentineroute.com",
+      href: "mailto:info@argentineroute.com",
+    },
+    {
+      icon: Phone,
+      label: t.contact.phoneLabel,
+      value: "+54 341 555 0123",
+      href: "tel:+543415550123",
+    },
+    {
+      icon: MapPin,
+      label: t.contact.location,
+      value: t.contact.locationValue,
+      href: null,
+    },
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,9 +49,9 @@ export function ContactContent() {
     <>
       {/* Hero */}
       <PageHero
-        title="Contactanos"
-        subtitle="Estamos listos para ayudarte a planificar el viaje de tus sueños por Argentina."
-        tagline="Hablemos"
+        title={t.contact.title}
+        subtitle={t.contact.description}
+        tagline={locale === "es" ? "Hablemos" : "Let's talk"}
         backgroundImage="https://images.unsplash.com/photo-1540778670146-36e2bf77a891?q=80&w=2070"
       />
 
@@ -66,11 +68,12 @@ export function ContactContent() {
                 className="lg:col-span-2"
               >
                 <h2 className="text-2xl font-bold text-foreground mb-6">
-                  Información de contacto
+                  {t.contact.info}
                 </h2>
                 <p className="text-muted-foreground mb-8 leading-relaxed">
-                  Completá el formulario o contactanos directamente. Te
-                  responderemos a la brevedad.
+                  {locale === "es"
+                    ? "Completá el formulario o contactanos directamente. Te responderemos a la brevedad."
+                    : "Fill out the form or contact us directly. We'll get back to you shortly."}
                 </p>
 
                 <div className="space-y-6">
@@ -125,10 +128,10 @@ export function ContactContent() {
                         <CheckCircle2 className="w-8 h-8 text-primary" />
                       </div>
                       <h3 className="text-2xl font-bold text-foreground mb-2">
-                        ¡Mensaje enviado!
+                        {t.contact.successTitle}
                       </h3>
                       <p className="text-muted-foreground">
-                        Te responderemos a la brevedad. Gracias por contactarnos.
+                        {t.contact.successMessage}
                       </p>
                     </motion.div>
                   ) : (
@@ -136,23 +139,23 @@ export function ContactContent() {
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div className="space-y-2">
                           <Label htmlFor="name" className="text-foreground">
-                            Nombre
+                            {t.contact.name}
                           </Label>
                           <Input
                             id="name"
-                            placeholder="Tu nombre"
+                            placeholder={locale === "es" ? "Tu nombre" : "Your name"}
                             required
                             className="bg-secondary/50 border-border/50 focus:border-primary rounded-xl"
                           />
                         </div>
                         <div className="space-y-2">
                           <Label htmlFor="email" className="text-foreground">
-                            Email
+                            {t.contact.email}
                           </Label>
                           <Input
                             id="email"
                             type="email"
-                            placeholder="tu@email.com"
+                            placeholder={locale === "es" ? "tu@email.com" : "your@email.com"}
                             required
                             className="bg-secondary/50 border-border/50 focus:border-primary rounded-xl"
                           />
@@ -161,11 +164,15 @@ export function ContactContent() {
 
                       <div className="space-y-2">
                         <Label htmlFor="subject" className="text-foreground">
-                          Asunto
+                          {locale === "es" ? "Asunto" : "Subject"}
                         </Label>
                         <Input
                           id="subject"
-                          placeholder="¿En qué podemos ayudarte?"
+                          placeholder={
+                            locale === "es"
+                              ? "¿En qué podemos ayudarte?"
+                              : "How can we help you?"
+                          }
                           required
                           className="bg-secondary/50 border-border/50 focus:border-primary rounded-xl"
                         />
@@ -173,11 +180,11 @@ export function ContactContent() {
 
                       <div className="space-y-2">
                         <Label htmlFor="message" className="text-foreground">
-                          Mensaje
+                          {t.contact.message}
                         </Label>
                         <Textarea
                           id="message"
-                          placeholder="Contanos sobre el viaje que tenés en mente..."
+                          placeholder={t.contact.messagePlaceholder}
                           rows={5}
                           required
                           className="bg-secondary/50 border-border/50 focus:border-primary rounded-xl resize-none"
@@ -190,10 +197,10 @@ export function ContactContent() {
                         className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-xl py-6 group"
                       >
                         {isLoading ? (
-                          "Enviando..."
+                          t.contact.sending
                         ) : (
                           <>
-                            Enviar mensaje
+                            {t.contact.send}
                             <Send className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                           </>
                         )}

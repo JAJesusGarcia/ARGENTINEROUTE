@@ -3,37 +3,46 @@
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/sections/page-hero";
 import { founder, staff } from "@/data/staff";
-import { User, Heart, Compass, Award } from "lucide-react";
-
-const values = [
-  {
-    icon: Heart,
-    title: "Pasión por Argentina",
-    description:
-      "Amamos cada rincón de nuestro país y queremos compartir esa pasión con vos.",
-  },
-  {
-    icon: Compass,
-    title: "Aventura auténtica",
-    description:
-      "Creamos experiencias genuinas que te conectan con la esencia de cada destino.",
-  },
-  {
-    icon: Award,
-    title: "Excelencia premium",
-    description:
-      "Cada detalle está cuidado para ofrecerte un viaje de primera categoría.",
-  },
-];
+import { Heart, Compass, Award } from "lucide-react";
+import { useTranslation } from "@/lib/i18n/context";
 
 export function AboutContent() {
+  const { t, locale } = useTranslation();
+
+  const values = [
+    {
+      icon: Heart,
+      title: locale === "es" ? "Pasión por Argentina" : "Passion for Argentina",
+      description:
+        locale === "es"
+          ? "Amamos cada rincón de nuestro país y queremos compartir esa pasión con vos."
+          : "We love every corner of our country and want to share that passion with you.",
+    },
+    {
+      icon: Compass,
+      title: locale === "es" ? "Aventura auténtica" : "Authentic adventure",
+      description:
+        locale === "es"
+          ? "Creamos experiencias genuinas que te conectan con la esencia de cada destino."
+          : "We create genuine experiences that connect you with the essence of each destination.",
+    },
+    {
+      icon: Award,
+      title: locale === "es" ? "Excelencia premium" : "Premium excellence",
+      description:
+        locale === "es"
+          ? "Cada detalle está cuidado para ofrecerte un viaje de primera categoría."
+          : "Every detail is taken care of to offer you a first-class trip.",
+    },
+  ];
+
   return (
     <>
       {/* Hero */}
       <PageHero
-        title="Nuestra historia"
-        subtitle="Desde Rosario hacia el mundo, creamos experiencias de viaje que transforman vidas y conectan corazones con la belleza de Argentina."
-        tagline="Sobre nosotros"
+        title={`${t.about.title} ${t.about.titleHighlight}`}
+        subtitle={t.about.description}
+        tagline={t.nav.about}
         backgroundImage="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069"
       />
 
@@ -48,10 +57,10 @@ export function AboutContent() {
             className="text-center mb-12"
           >
             <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 rounded-full">
-              Nuestros valores
+              {locale === "es" ? "Nuestros valores" : "Our values"}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Lo que nos define
+              {locale === "es" ? "Lo que nos define" : "What defines us"}
             </h2>
           </motion.div>
 
@@ -106,14 +115,18 @@ export function AboutContent() {
                 {/* Content */}
                 <div className="p-8 md:p-12 flex flex-col justify-center">
                   <span className="inline-block px-3 py-1 mb-4 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 rounded-full w-fit">
-                    Fundador
+                    {t.about.founder}
                   </span>
                   <h2 className="text-3xl font-bold text-foreground mb-2">
                     {founder.name}
                   </h2>
-                  <p className="text-primary font-medium mb-4">{founder.role}</p>
+                  <p className="text-primary font-medium mb-4">
+                    {locale === "es" ? founder.role : "CEO & Founder"}
+                  </p>
                   <p className="text-muted-foreground leading-relaxed">
-                    {founder.description}
+                    {locale === "es"
+                      ? founder.description
+                      : "With over 15 years of experience in premium tourism, I have dedicated my life to showing the world the incredible beauty of Argentina."}
                   </p>
                 </div>
               </div>
@@ -133,14 +146,13 @@ export function AboutContent() {
             className="text-center mb-12"
           >
             <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 rounded-full">
-              El equipo
+              {t.about.team}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Quienes hacen la magia
+              {locale === "es" ? "Quienes hacen la magia" : "The people behind the magic"}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Un equipo apasionado de profesionales dedicados a crear las
-              mejores experiencias de viaje.
+              {t.about.teamDescription}
             </p>
           </motion.div>
 

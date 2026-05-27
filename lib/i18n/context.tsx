@@ -70,3 +70,6 @@ export function useI18n() {
   }
   return context;
 }
+
+// Alias for convenience
+export const useTranslation = useI18n;

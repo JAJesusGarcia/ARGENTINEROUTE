@@ -14,6 +14,7 @@ import Link from "next/link";
 import { PageHero } from "@/components/sections/page-hero";
 import { PlaceCard } from "@/components/cards/place-card";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "@/lib/i18n/context";
 import type { Province } from "@/data/provinces";
 import type { Place } from "@/data/places";
 
@@ -22,14 +23,16 @@ interface ProvinceContentProps {
   places: Place[];
 }
 
-const infoCards = [
-  { key: "climate", icon: Cloud, label: "Clima" },
-  { key: "culture", icon: Palette, label: "Cultura" },
-  { key: "gastronomy", icon: Utensils, label: "Gastronomía" },
-  { key: "landscapes", icon: Mountain, label: "Paisajes" },
-];
-
 export function ProvinceContent({ province, places }: ProvinceContentProps) {
+  const { t, locale } = useTranslation();
+
+  const infoCards = [
+    { key: "climate", icon: Cloud, label: locale === "es" ? "Clima" : "Climate" },
+    { key: "culture", icon: Palette, label: locale === "es" ? "Cultura" : "Culture" },
+    { key: "gastronomy", icon: Utensils, label: locale === "es" ? "Gastronomía" : "Gastronomy" },
+    { key: "landscapes", icon: Mountain, label: locale === "es" ? "Paisajes" : "Landscapes" },
+  ];
+
   const imageIndex =
     province.slug === "rosario"
       ? 0
@@ -66,7 +69,7 @@ export function ProvinceContent({ province, places }: ProvinceContentProps) {
         tagline={province.shortDescription}
         backgroundImage={heroImage}
         showBreadcrumb
-        breadcrumbLabel="Volver a provincias"
+        breadcrumbLabel={locale === "es" ? "Volver a provincias" : "Back to provinces"}
         breadcrumbHref="/#provincias"
       />
 
@@ -137,7 +140,7 @@ export function ProvinceContent({ province, places }: ProvinceContentProps) {
             className="mt-12 text-center"
           >
             <h3 className="text-lg font-semibold text-foreground mb-4">
-              Destacados
+              {t.provinceDetail.highlights}
             </h3>
             <div className="flex flex-wrap justify-center gap-3">
               {province.highlights.map((highlight) => (
@@ -165,14 +168,17 @@ export function ProvinceContent({ province, places }: ProvinceContentProps) {
               className="text-center mb-12"
             >
               <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 rounded-full">
-                Lugares destacados
+                {t.provinceDetail.featuredPlaces}
               </span>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Qué visitar en {province.name}
+                {locale === "es"
+                  ? `Qué visitar en ${province.name}`
+                  : `What to visit in ${province.name}`}
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
-                Descubrí los lugares más impresionantes que esta provincia tiene
-                para ofrecer.
+                {locale === "es"
+                  ? "Descubrí los lugares más impresionantes que esta provincia tiene para ofrecer."
+                  : "Discover the most impressive places this province has to offer."}
               </p>
             </motion.div>
 
@@ -195,7 +201,7 @@ export function ProvinceContent({ province, places }: ProvinceContentProps) {
                 className="rounded-full border-border/50 bg-secondary/50 hover:bg-secondary group"
               >
                 <Link href="/lugares">
-                  Ver todos los destinos
+                  {locale === "es" ? "Ver todos los destinos" : "View all destinations"}
                   <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>

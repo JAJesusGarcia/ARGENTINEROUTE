@@ -9,8 +9,10 @@ import { provinces } from "@/data/provinces";
 import { Search, Filter } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { useTranslation } from "@/lib/i18n/context";
 
 export function LugaresContent() {
+  const { t, locale } = useTranslation();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedProvince, setSelectedProvince] = useState<string | null>(null);
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
@@ -52,9 +54,9 @@ export function LugaresContent() {
     <>
       {/* Hero */}
       <PageHero
-        title="Todos los destinos"
-        subtitle="Explorá nuestra selección de lugares únicos a lo largo de Argentina. Cada destino tiene una historia que contar."
-        tagline="Lugares"
+        title={`${t.places.title} ${t.places.titleHighlight}`}
+        subtitle={t.places.description}
+        tagline={t.nav.places}
         backgroundImage="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070"
       />
 
@@ -67,7 +69,7 @@ export function LugaresContent() {
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
               <Input
                 type="text"
-                placeholder="Buscar destinos..."
+                placeholder={t.places.searchPlaceholder}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 bg-secondary/50 border-border/50 rounded-full"
@@ -78,7 +80,7 @@ export function LugaresContent() {
             <div className="flex flex-wrap items-center gap-2">
               <div className="flex items-center gap-2 text-sm text-muted-foreground mr-2">
                 <Filter className="w-4 h-4" />
-                <span>Filtrar:</span>
+                <span>{locale === "es" ? "Filtrar:" : "Filter:"}</span>
               </div>
 
               {/* Province Filters */}
@@ -106,7 +108,7 @@ export function LugaresContent() {
                   onClick={clearFilters}
                   className="px-3 py-1.5 rounded-full text-sm bg-destructive/10 text-destructive hover:bg-destructive/20 transition-colors"
                 >
-                  Limpiar filtros
+                  {t.places.clearFilters}
                 </button>
               )}
             </div>
@@ -142,13 +144,13 @@ export function LugaresContent() {
               className="text-center py-16"
             >
               <p className="text-muted-foreground text-lg mb-4">
-                No se encontraron destinos con los filtros seleccionados.
+                {t.places.noResults}
               </p>
               <button
                 onClick={clearFilters}
                 className="text-primary hover:underline"
               >
-                Limpiar filtros
+                {t.places.clearFilters}
               </button>
             </motion.div>
           ) : (
@@ -158,8 +160,9 @@ export function LugaresContent() {
                 animate={{ opacity: 1 }}
                 className="text-muted-foreground text-sm mb-8"
               >
-                Mostrando {filteredPlaces.length} destino
-                {filteredPlaces.length !== 1 ? "s" : ""}
+                {locale === "es"
+                  ? `Mostrando ${filteredPlaces.length} destino${filteredPlaces.length !== 1 ? "s" : ""}`
+                  : `Showing ${filteredPlaces.length} destination${filteredPlaces.length !== 1 ? "s" : ""}`}
               </motion.p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
