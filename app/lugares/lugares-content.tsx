@@ -1,12 +1,12 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { PageHero } from "@/components/sections/page-hero";
 import { PlaceCard } from "@/components/cards/place-card";
 import { places } from "@/data/places";
 import { provinces } from "@/data/provinces";
-import { Search, Filter } from "lucide-react";
+import { Search, Filter, ChevronDown, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { useTranslation } from "@/lib/i18n/context";
@@ -16,6 +16,7 @@ export function LugaresContent() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedProvince, setSelectedProvince] = useState<string | null>(null);
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [filtersOpen, setFiltersOpen] = useState(false);
 
   // Get all unique tags
   const allTags = useMemo(() => {
@@ -49,6 +50,7 @@ export function LugaresContent() {
   };
 
   const hasActiveFilters = searchQuery || selectedProvince || selectedTag;
+  const activeFilterCount = [searchQuery, selectedProvince, selectedTag].filter(Boolean).length;
 
   return (
     <>
@@ -57,13 +59,113 @@ export function LugaresContent() {
         title={`${t.places.title} ${t.places.titleHighlight}`}
         subtitle={t.places.description}
         tagline={t.nav.places}
-        backgroundImage= "/images/staff/about-hero.webp"
+        backgroundImage="/images/staff/about-hero.webp"
       />
 
       {/* Filters Section */}
-      <section className="py-8 bg-background sticky top-16 z-30 border-b border-border/50">
+      <section className="py-4 bg-background sticky top-16 z-30 border-b border-border/50">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col gap-4">
+
+          {/* Mobile: Search + toggle button in one row */}
+          <div className="flex items-center gap-3 md:hidden">
+            <div className="relative flex-1">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+              <Input
+                type="text"
+                placeholder={t.places.searchPlaceholder}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 bg-secondary/50 border-border/50 rounded-full"
+              />
+            </div>
+            <button
+              onClick={() => setFiltersOpen(!filtersOpen)}
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-sm transition-all whitespace-nowrap ${
+                filtersOpen || hasActiveFilters
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-secondary/50 text-muted-foreground"
+              }`}
+            >
+              <Filter className="w-4 h-4" />
+              {locale === "es" ? "Filtros" : "Filters"}
+              {activeFilterCount > 0 && (
+                <span className="bg-white/20 rounded-full w-5 h-5 flex items-center justify-center text-xs font-semibold">
+                  {activeFilterCount}
+                </span>
+              )}
+              <ChevronDown
+                className={`w-3.5 h-3.5 transition-transform ${filtersOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+          </div>
+
+          {/* Mobile: collapsible filter panel */}
+          <AnimatePresence>
+            {filtersOpen && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="overflow-hidden md:hidden"
+              >
+                <div className="pt-4 flex flex-col gap-3">
+                  {/* Province Filters */}
+                  <div className="flex flex-wrap gap-2">
+                    {provinces.map((province) => (
+                      <button
+                        key={province.slug}
+                        onClick={() =>
+                          setSelectedProvince(
+                            selectedProvince === province.slug ? null : province.slug
+                          )
+                        }
+                        className={`px-3 py-1.5 rounded-full text-sm transition-all ${
+                          selectedProvince === province.slug
+                            ? "bg-primary text-primary-foreground"
+                            : "bg-secondary/50 text-muted-foreground hover:bg-secondary hover:text-foreground"
+                        }`}
+                      >
+                        {province.name}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Tag Filters */}
+                  <div className="flex flex-wrap gap-2">
+                    {allTags.map((tag) => (
+                      <Badge
+                        key={tag}
+                        variant="secondary"
+                        className={`cursor-pointer transition-all ${
+                          selectedTag === tag
+                            ? "bg-primary/20 text-primary border-primary/30"
+                            : "bg-secondary/30 text-muted-foreground hover:bg-secondary/50"
+                        }`}
+                        onClick={() => setSelectedTag(selectedTag === tag ? null : tag)}
+                      >
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  {/* Clear filters */}
+                  {hasActiveFilters && (
+                    <button
+                      onClick={clearFilters}
+                      className="flex items-center gap-1.5 self-start px-3 py-1.5 rounded-full text-sm bg-destructive/10 text-destructive hover:bg-destructive/20 transition-colors"
+                    >
+                      <X className="w-3.5 h-3.5" />
+                      {t.places.clearFilters}
+                    </button>
+                  )}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Desktop: layout original completo */}
+          <div className="hidden md:flex flex-col gap-4 py-4">
             {/* Search */}
             <div className="relative max-w-md">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
@@ -76,14 +178,12 @@ export function LugaresContent() {
               />
             </div>
 
-            {/* Filter Pills */}
+            {/* Province Filters */}
             <div className="flex flex-wrap items-center gap-2">
               <div className="flex items-center gap-2 text-sm text-muted-foreground mr-2">
                 <Filter className="w-4 h-4" />
                 <span>{locale === "es" ? "Filtrar:" : "Filter:"}</span>
               </div>
-
-              {/* Province Filters */}
               {provinces.map((province) => (
                 <button
                   key={province.slug}
@@ -101,8 +201,6 @@ export function LugaresContent() {
                   {province.name}
                 </button>
               ))}
-
-              {/* Clear Filters */}
               {hasActiveFilters && (
                 <button
                   onClick={clearFilters}
@@ -131,6 +229,7 @@ export function LugaresContent() {
               ))}
             </div>
           </div>
+
         </div>
       </section>
 
