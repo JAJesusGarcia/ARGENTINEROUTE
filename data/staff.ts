@@ -13,7 +13,7 @@ export const founder: StaffMember = {
   name: "Darío",
   role: "Fundador & CEO",
   roleEn: "Founder & CEO",
-  image: "/images/staff/founder.jpg",
+  image: "/images/staff/founder.webp",
 };
 
 export const staff: StaffMember[] = [
@@ -22,6 +22,8 @@ export const staff: StaffMember[] = [
     name: "Jimena Micle",
     role: "Socia Gerente",
     roleEn: "Managing Partner",
+    location: "San Lorenzo, Santa Fe",
+    age: 37,
     image: "/images/staff/jimena-micle.webp",
   },
   {
@@ -29,6 +31,8 @@ export const staff: StaffMember[] = [
     name: "Sara Rodríguez Carvajal",
     role: "Coordinadora de Ventas y Logística",
     roleEn: "Sales & Logistics Coordinator",
+    location: "San Miguel, Tucumán",
+    age: 47,
     image: "/images/staff/sara-rodriguez.webp",
   },
   {
@@ -64,6 +68,7 @@ export const staff: StaffMember[] = [
     role: "Vendedora Oficial",
     roleEn: "Official Sales Agent",
     location: "Salta Capital",
+    age: 33,
     image: "/images/staff/yuliana-pastrana.webp",
   },
   {
@@ -80,6 +85,8 @@ export const staff: StaffMember[] = [
     name: "Jesús García",
     role: "Desarrollador Web",
     roleEn: "Web Developer",
+    location: "Rosario, Santa Fe",
+    age: 27,
     image: "/images/staff/jesus-garcia.webp",
   },
 ];
