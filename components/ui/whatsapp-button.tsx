@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X } from "lucide-react";
 import { useI18n } from "@/lib/i18n/context";
 
-const WHATSAPP_NUMBER = "5491123456789"; // Replace with actual number
+const WHATSAPP_NUMBER = "5493416656170";
 const DEFAULT_MESSAGE_ES = "Hola! Me gustaría obtener más información sobre sus viajes por Argentina.";
 const DEFAULT_MESSAGE_EN = "Hi! I'd like to get more information about your trips in Argentina.";
 
