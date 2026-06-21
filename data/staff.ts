@@ -22,14 +22,14 @@ export const staff: StaffMember[] = [
     name: "Jimena Micle",
     role: "Socia Gerente",
     roleEn: "Managing Partner",
-    image: "/images/staff/jimena.jpg",
+    image: "/images/staff/jimena-micle.webp",
   },
   {
     id: "2",
     name: "Sara Rodríguez Carvajal",
     role: "Coordinadora de Ventas y Logística",
     roleEn: "Sales & Logistics Coordinator",
-    image: "/images/staff/sara.jpg",
+    image: "/images/staff/sara-rodriguez.webp",
   },
   {
     id: "3",
@@ -38,7 +38,7 @@ export const staff: StaffMember[] = [
     roleEn: "Salesperson & Onboard Coordinator",
     location: "San Nicolás, Buenos Aires",
     age: 47,
-    image: "/images/staff/gaston.jpg",
+    image: "/images/staff/gaston-lemon.webp",
   },
   {
     id: "4",
@@ -47,7 +47,7 @@ export const staff: StaffMember[] = [
     roleEn: "Official Sales Agent",
     location: "Santo Tomé, Santa Fe",
     age: 27,
-    image: "/images/staff/valentina.jpg",
+    image: "/images/staff/vantina-ruggeri.webp",
   },
   {
     id: "5",
@@ -56,7 +56,7 @@ export const staff: StaffMember[] = [
     roleEn: "Official Sales Agent",
     location: "Mendoza Capital",
     age: 37,
-    image: "/images/staff/roxana.jpg",
+    image: "/images/staff/lazo-roxana.webp",
   },
   {
     id: "6",
@@ -64,7 +64,7 @@ export const staff: StaffMember[] = [
     role: "Vendedora Oficial",
     roleEn: "Official Sales Agent",
     location: "Salta Capital",
-    image: "/images/staff/yuliana.jpg",
+    image: "/images/staff/yuliana-pastrana.webp",
   },
   {
     id: "7",
@@ -73,13 +73,13 @@ export const staff: StaffMember[] = [
     roleEn: "Official Sales Agent",
     location: "Victoria, Entre Ríos",
     age: 32,
-    image: "/images/staff/luciano.jpg",
+    image: "/images/staff/luciano-zeballos.webp",
   },
   {
     id: "8",
     name: "Jesús García",
     role: "Desarrollador Web",
     roleEn: "Web Developer",
-    image: "/images/staff/jesus.jpg",
+    image: "/images/staff/jesus-garcia.webp",
   },
 ];

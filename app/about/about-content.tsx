@@ -43,7 +43,7 @@ export function AboutContent() {
         title={`${t.about.title} ${t.about.titleHighlight}`}
         subtitle={t.about.description}
         tagline={t.nav.about}
-        backgroundImage="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069"
+        backgroundImage="/images/staff/about-hero.webp"
       />
 
       {/* Values Section */}
@@ -108,7 +108,7 @@ export function AboutContent() {
                 <div
                   className="aspect-square md:aspect-auto bg-cover bg-center"
                   style={{
-                    backgroundImage: `url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600')`,
+                    backgroundImage: `url('${founder.image}')`,
                   }}
                 />
 
@@ -171,23 +171,7 @@ export function AboutContent() {
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
                     style={{
-                      backgroundImage: `url('https://images.unsplash.com/photo-${
-                        index === 0
-                          ? "1573497019940-1c28c88b4f3e" // Jimena
-                          : index === 1
-                          ? "1487412720507-e7ab37603c6f" // Sara
-                          : index === 2
-                          ? "1507003211169-0a1dd7228f2d" // Gastón
-                          : index === 3
-                          ? "1494790108377-be9c29b29330" // Valentina
-                          : index === 4
-                          ? "1438761681033-6461ffad8d80" // Roxana
-                          : index === 5
-                          ? "1544005313-94ddf0286df2" // Yuliana
-                          : index === 6
-                          ? "1500648767791-00dcc994a43e" // Luciano
-                          : "1472099645785-5658abf4ff4e" // Jesús
-                      }?q=80&w=400')`,
+                      backgroundImage: `url('${member.image}')`,
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
