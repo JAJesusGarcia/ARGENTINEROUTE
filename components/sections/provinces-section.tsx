@@ -2,7 +2,15 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Sun, Cloud, CloudSun, Snowflake, Wind, Mountain, Thermometer } from "lucide-react";
+import {
+  Sun,
+  Cloud,
+  CloudSun,
+  Snowflake,
+  Wind,
+  Mountain,
+  Thermometer,
+} from "lucide-react";
 import { provinces, type Province } from "@/data/provinces";
 import { useI18n } from "@/lib/i18n/context";
 
@@ -14,18 +22,13 @@ const weatherIcons = {
   wind: Wind,
 };
 
-const provincePhotoIds: Record<string, string> = {
-  "buenos-aires": "1612294037637-ec328d0e075e",
-  rosario: "1558618666-fcd25c85cd64",
-  cordoba: "1540778670146-36e2bf77a891",
-  "san-juan": "1682687982501-1e58ab814714",
-  "la-rioja": "1469854523086-cc02fe5d8800",
-  salta: "1506905925346-21bda4d32df4",
-  jujuy: "1583683432858-bc8223c1f7e4",
-  misiones: "1597535973747-951b9d1f9b8f",
-};
-
-function ProvinceCard({ province, index }: { province: Province; index: number }) {
+function ProvinceCard({
+  province,
+  index,
+}: {
+  province: Province;
+  index: number;
+}) {
   const WeatherIcon = weatherIcons[province.weatherIcon];
   const { locale } = useI18n();
 
@@ -42,9 +45,7 @@ function ProvinceCard({ province, index }: { province: Province; index: number }
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
             style={{
-              backgroundImage: `url('https://images.unsplash.com/photo-${
-                provincePhotoIds[province.slug] ?? "1501785888041-af3ef285b470"
-              }?q=80&w=800')`,
+              backgroundImage: `url('${province.image}')`,
             }}
           />
 
@@ -64,6 +65,7 @@ function ProvinceCard({ province, index }: { province: Province; index: number }
                     {province.shortDescription}
                   </p>
                 </div>
+
                 <div className="flex items-center gap-1 text-primary">
                   <WeatherIcon className="w-5 h-5" />
                   <span className="text-lg font-semibold text-foreground">
@@ -81,9 +83,13 @@ function ProvinceCard({ province, index }: { province: Province; index: number }
                   <Mountain className="w-3.5 h-3.5" />
                   <span>{province.altitude}m</span>
                 </div>
+
                 <div className="flex items-center gap-1.5 text-muted-foreground">
                   <Thermometer className="w-3.5 h-3.5" />
-                  <span>{locale === "es" ? "Sensación" : "Feels"} {province.temperature + 2}°</span>
+                  <span>
+                    {locale === "es" ? "Sensación" : "Feels"}{" "}
+                    {province.temperature + 2}°
+                  </span>
                 </div>
               </div>
             </div>
@@ -114,11 +120,18 @@ export function ProvincesSection() {
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 rounded-full">
-            {locale === "es" ? "Destinos destacados" : "Featured destinations"}
+            {locale === "es"
+              ? "Destinos destacados"
+              : "Featured destinations"}
           </span>
+
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 text-balance">
-            {t.provinces.title} <span className="text-gradient">{t.provinces.subtitle}</span>
+            {t.provinces.title}{" "}
+            <span className="text-gradient">
+              {t.provinces.subtitle}
+            </span>
           </h2>
+
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg text-pretty">
             {t.provinces.description}
           </p>
@@ -127,7 +140,11 @@ export function ProvincesSection() {
         {/* Province Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {provinces.map((province, index) => (
-            <ProvinceCard key={province.id} province={province} index={index} />
+            <ProvinceCard
+              key={province.id}
+              province={province}
+              index={index}
+            />
           ))}
         </div>
       </div>

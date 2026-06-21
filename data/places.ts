@@ -27,7 +27,7 @@ export const places: Place[] = [
     description: "El corazón de Buenos Aires late en el Obelisco, ícono de la ciudad sobre la Avenida 9 de Julio, la más ancha del mundo. A pocas cuadras, el majestuoso Teatro Colón deslumbra como una de las salas líricas más importantes del planeta por su acústica perfecta.",
     shortDescription: "Íconos de la capital porteña",
     image: "/images/places/obelisco.jpg",
-    galleryImages: ["/images/places/obelisco-1.jpg", "/images/places/teatro-colon-1.jpg", "/images/places/buenos-aires-1.jpg"],
+    galleryImages: ["/images/provinces/buenos-aires.webp", "/images/places/teatro-colon-1.jpg", "/images/places/buenos-aires-1.jpg"],
     rating: 4.8,
     tags: ["Histórico", "Arquitectura", "Cultura", "Ciudad"],
     history: "El Obelisco fue erigido en 1936 para conmemorar el cuarto centenario de la primera fundación de Buenos Aires. El Teatro Colón fue inaugurado en 1908 y es considerado uno de los cinco mejores teatros del mundo por su acústica.",
