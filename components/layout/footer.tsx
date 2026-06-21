@@ -17,9 +17,9 @@ export function Footer() {
   const footerLinks = {
     explore: [
       { href: "/lugares", label: locale === "es" ? "Destinos" : "Destinations" },
-      { href: "/provincias/mendoza", label: "Mendoza" },
+      { href: "/provincias/buenos-aires", label: "Buenos Aires" },
       { href: "/provincias/salta", label: "Salta" },
-      { href: "/provincias/jujuy", label: "Jujuy" },
+      { href: "/provincias/misiones", label: "Misiones" },
     ],
     company: [
       { href: "/about", label: t.nav.about },

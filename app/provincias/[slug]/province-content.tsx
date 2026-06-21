@@ -33,31 +33,19 @@ export function ProvinceContent({ province, places }: ProvinceContentProps) {
     { key: "landscapes", icon: Mountain, label: locale === "es" ? "Paisajes" : "Landscapes" },
   ];
 
-  const imageIndex =
-    province.slug === "rosario"
-      ? 0
-      : province.slug === "mendoza"
-      ? 1
-      : province.slug === "salta"
-      ? 2
-      : province.slug === "jujuy"
-      ? 3
-      : province.slug === "cordoba"
-      ? 4
-      : 5;
+  const heroPhotoIds: Record<string, string> = {
+    "buenos-aires": "1612294037637-ec328d0e075e",
+    rosario: "1558618666-fcd25c85cd64",
+    cordoba: "1540778670146-36e2bf77a891",
+    "san-juan": "1682687982501-1e58ab814714",
+    "la-rioja": "1469854523086-cc02fe5d8800",
+    salta: "1506905925346-21bda4d32df4",
+    jujuy: "1583683432858-bc8223c1f7e4",
+    misiones: "1597535973747-951b9d1f9b8f",
+  };
 
   const heroImage = `https://images.unsplash.com/photo-${
-    imageIndex === 0
-      ? "1558618666-fcd25c85cd64"
-      : imageIndex === 1
-      ? "1601042879364-f3947d07bea6"
-      : imageIndex === 2
-      ? "1506905925346-21bda4d32df4"
-      : imageIndex === 3
-      ? "1583683432858-bc8223c1f7e4"
-      : imageIndex === 4
-      ? "1540778670146-36e2bf77a891"
-      : "1501785888041-af3ef285b470"
+    heroPhotoIds[province.slug] ?? "1501785888041-af3ef285b470"
   }?q=80&w=2070`;
 
   return (

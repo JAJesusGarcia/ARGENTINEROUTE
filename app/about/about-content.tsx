@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/sections/page-hero";
 import { founder, staff } from "@/data/staff";
-import { Heart, Compass, Award } from "lucide-react";
+import { Heart, Compass, Award, MapPin } from "lucide-react";
 import { useTranslation } from "@/lib/i18n/context";
 
 export function AboutContent() {
@@ -121,12 +121,12 @@ export function AboutContent() {
                     {founder.name}
                   </h2>
                   <p className="text-primary font-medium mb-4">
-                    {locale === "es" ? founder.role : "CEO & Founder"}
+                    {locale === "es" ? founder.role : founder.roleEn}
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
                     {locale === "es"
-                      ? founder.description
-                      : "With over 15 years of experience in premium tourism, I have dedicated my life to showing the world the incredible beauty of Argentina."}
+                      ? "Visionario detrás de ARGENTINE ROUTE, apasionado por mostrar lo mejor del norte argentino a viajeros de todo el mundo."
+                      : "The visionary behind ARGENTINE ROUTE, passionate about showcasing the best of northern Argentina to travelers from all over the world."}
                   </p>
                 </div>
               </div>
@@ -173,16 +173,20 @@ export function AboutContent() {
                     style={{
                       backgroundImage: `url('https://images.unsplash.com/photo-${
                         index === 0
-                          ? "1494790108377-be9c29b29330"
+                          ? "1573497019940-1c28c88b4f3e" // Jimena
                           : index === 1
-                          ? "1472099645785-5658abf4ff4e"
+                          ? "1487412720507-e7ab37603c6f" // Sara
                           : index === 2
-                          ? "1438761681033-6461ffad8d80"
+                          ? "1507003211169-0a1dd7228f2d" // Gastón
                           : index === 3
-                          ? "1500648767791-00dcc994a43e"
+                          ? "1494790108377-be9c29b29330" // Valentina
                           : index === 4
-                          ? "1534528741775-53994a69daeb"
-                          : "1507003211169-0a1dd7228f2d"
+                          ? "1438761681033-6461ffad8d80" // Roxana
+                          : index === 5
+                          ? "1544005313-94ddf0286df2" // Yuliana
+                          : index === 6
+                          ? "1500648767791-00dcc994a43e" // Luciano
+                          : "1472099645785-5658abf4ff4e" // Jesús
                       }?q=80&w=400')`,
                     }}
                   />
@@ -195,11 +199,23 @@ export function AboutContent() {
                     {member.name}
                   </h3>
                   <p className="text-primary text-sm font-medium mb-2">
-                    {member.role}
+                    {locale === "es" ? member.role : member.roleEn}
                   </p>
-                  <p className="text-muted-foreground text-sm">
-                    {member.description}
-                  </p>
+                  {(member.location || member.age) && (
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-muted-foreground text-sm">
+                      {member.location && (
+                        <span className="inline-flex items-center gap-1">
+                          <MapPin className="w-3.5 h-3.5 text-primary/70" />
+                          {member.location}
+                        </span>
+                      )}
+                      {member.age && (
+                        <span>
+                          {member.age} {locale === "es" ? "años" : "yrs"}
+                        </span>
+                      )}
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}

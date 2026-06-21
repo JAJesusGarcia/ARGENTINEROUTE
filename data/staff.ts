@@ -2,59 +2,84 @@ export interface StaffMember {
   id: string;
   name: string;
   role: string;
-  description: string;
+  roleEn: string;
+  location?: string;
+  age?: number;
   image: string;
 }
 
 export const founder: StaffMember = {
   id: "founder",
-  name: "Martín Aguirre",
+  name: "Darío",
   role: "Fundador & CEO",
-  description: "Apasionado viajero con más de 15 años recorriendo cada rincón de Argentina. Martín fundó ARGENTINEROUTE con el sueño de compartir la belleza de su país con el mundo. Su visión es crear experiencias de viaje que transformen vidas y conecten a las personas con la naturaleza y cultura argentina.",
-  image: "/images/staff/founder.jpg"
+  roleEn: "Founder & CEO",
+  image: "/images/staff/founder.jpg",
 };
 
 export const staff: StaffMember[] = [
   {
     id: "1",
-    name: "Lucía Fernández",
-    role: "Directora de Experiencias",
-    description: "Experta en diseñar itinerarios únicos y memorables.",
-    image: "/images/staff/lucia.jpg"
+    name: "Jimena Micle",
+    role: "Socia Gerente",
+    roleEn: "Managing Partner",
+    image: "/images/staff/jimena.jpg",
   },
   {
     id: "2",
-    name: "Carlos Mendoza",
-    role: "Guía Senior",
-    description: "Conocedor de cada sendero y secreto de la Patagonia.",
-    image: "/images/staff/carlos.jpg"
+    name: "Sara Rodríguez Carvajal",
+    role: "Coordinadora de Ventas y Logística",
+    roleEn: "Sales & Logistics Coordinator",
+    image: "/images/staff/sara.jpg",
   },
   {
     id: "3",
-    name: "Ana Belén Torres",
-    role: "Coordinadora de Viajes",
-    description: "Especialista en logística y atención al cliente.",
-    image: "/images/staff/ana.jpg"
+    name: "Gastón Lemon",
+    role: "Vendedor y Coordinador a Bordo",
+    roleEn: "Salesperson & Onboard Coordinator",
+    location: "San Nicolás, Buenos Aires",
+    age: 47,
+    image: "/images/staff/gaston.jpg",
   },
   {
     id: "4",
-    name: "Diego Ramírez",
-    role: "Fotógrafo de Expediciones",
-    description: "Captura los momentos más épicos de cada aventura.",
-    image: "/images/staff/diego.jpg"
+    name: "Valentina Ruggeri",
+    role: "Vendedora Oficial",
+    roleEn: "Official Sales Agent",
+    location: "Santo Tomé, Santa Fe",
+    age: 27,
+    image: "/images/staff/valentina.jpg",
   },
   {
     id: "5",
-    name: "Valentina Sosa",
-    role: "Especialista en Enoturismo",
-    description: "Sommelier certificada y amante de los viñedos mendocinos.",
-    image: "/images/staff/valentina.jpg"
+    name: "Roxana Lazo",
+    role: "Vendedora Oficial",
+    roleEn: "Official Sales Agent",
+    location: "Mendoza Capital",
+    age: 37,
+    image: "/images/staff/roxana.jpg",
   },
   {
     id: "6",
-    name: "Nicolás Herrera",
-    role: "Guía de Montaña",
-    description: "Montañista profesional con certificación internacional.",
-    image: "/images/staff/nicolas.jpg"
-  }
+    name: "Yuliana Pastrana",
+    role: "Vendedora Oficial",
+    roleEn: "Official Sales Agent",
+    location: "Salta Capital",
+    image: "/images/staff/yuliana.jpg",
+  },
+  {
+    id: "7",
+    name: "Luciano A. Zeballos",
+    role: "Vendedor Oficial",
+    roleEn: "Official Sales Agent",
+    location: "Victoria, Entre Ríos",
+    age: 32,
+    image: "/images/staff/luciano.jpg",
+  },
+  {
+    id: "8",
+    name: "Jesús García",
+    role: "Desarrollador Web",
+    roleEn: "Web Developer",
+    image: "/images/staff/jesus.jpg",
+  },
 ];
