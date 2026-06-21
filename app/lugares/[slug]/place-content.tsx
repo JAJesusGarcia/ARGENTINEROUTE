@@ -25,20 +25,10 @@ interface PlaceContentProps {
 export function PlaceContent({ place }: PlaceContentProps) {
   const { t, locale } = useTranslation();
 
-  const placeImages = [
-    "1506905925346-21bda4d32df4",
-    "1601042879364-f3947d07bea6",
-    "1464822759023-fed622ff2c3b",
-    "1558618666-fcd25c85cd64",
-    "1583683432858-bc8223c1f7e4",
-    "1540778670146-36e2bf77a891",
-    "1501785888041-af3ef285b470",
-    "1587474260584-136574528ed5",
-  ];
-
-  const imageIndex =
-    parseInt(place.id) <= placeImages.length ? parseInt(place.id) - 1 : 0;
-  const heroImage = `https://images.unsplash.com/photo-${placeImages[imageIndex]}?q=80&w=2070`;
+  // Normalize galleryImages to always be an array
+  const galleryImages = Array.isArray(place.galleryImages)
+    ? place.galleryImages
+    : [place.galleryImages];
 
   return (
     <>
@@ -47,7 +37,7 @@ export function PlaceContent({ place }: PlaceContentProps) {
         title={place.name}
         subtitle={place.shortDescription}
         tagline={place.provinceName}
-        backgroundImage={heroImage}
+        backgroundImage={place.image}
         showBreadcrumb
         breadcrumbLabel={`${t.placeDetail.backToPlaces.split(" ")[0]} ${place.provinceName}`}
         breadcrumbHref={`/provincias/${place.provinceSlug}`}
@@ -123,18 +113,14 @@ export function PlaceContent({ place }: PlaceContentProps) {
                 {t.placeDetail.gallery}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {[0, 1, 2].map((i) => (
+                {galleryImages.slice(0, 3).map((img, i) => (
                   <div
                     key={i}
                     className="aspect-[4/3] rounded-2xl overflow-hidden"
                   >
                     <div
                       className="w-full h-full bg-cover bg-center hover:scale-105 transition-transform duration-500"
-                      style={{
-                        backgroundImage: `url('https://images.unsplash.com/photo-${
-                          placeImages[(imageIndex + i) % placeImages.length]
-                        }?q=80&w=600')`,
-                      }}
+                      style={{ backgroundImage: `url('${img}')` }}
                     />
                   </div>
                 ))}
