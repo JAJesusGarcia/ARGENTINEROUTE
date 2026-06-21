@@ -26,25 +26,10 @@ export function PlaceCard({ place, index = 0 }: PlaceCardProps) {
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
               style={{
-                backgroundImage: `url('https://images.unsplash.com/photo-${
-                  index === 0
-                    ? "1506905925346-21bda4d32df4"
-                    : index === 1
-                    ? "1601042879364-f3947d07bea6"
-                    : index === 2
-                    ? "1464822759023-fed622ff2c3b"
-                    : index === 3
-                    ? "1558618666-fcd25c85cd64"
-                    : index === 4
-                    ? "1583683432858-bc8223c1f7e4"
-                    : index === 5
-                    ? "1540778670146-36e2bf77a891"
-                    : index === 6
-                    ? "1501785888041-af3ef285b470"
-                    : "1587474260584-136574528ed5"
-                }?q=80&w=800')`,
+                backgroundImage: `url('${place.image}')`,
               }}
             />
+
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
 
             {/* Rating Badge */}
@@ -68,7 +53,6 @@ export function PlaceCard({ place, index = 0 }: PlaceCardProps) {
               {place.shortDescription}
             </p>
 
-            {/* Tags */}
             <div className="flex flex-wrap gap-2">
               {place.tags.slice(0, 3).map((tag) => (
                 <Badge
