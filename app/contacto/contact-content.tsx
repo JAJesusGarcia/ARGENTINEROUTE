@@ -19,14 +19,14 @@ export function ContactContent() {
     {
       icon: Mail,
       label: t.contact.emailLabel,
-      value: "info@argentineroute.com",
-      href: "mailto:info@argentineroute.com",
+      value: "dariodanielbenitezsosa@gmail.com",
+      href: "mailto:dariodanielbenitezsosa@gmail.com",
     },
     {
       icon: Phone,
       label: t.contact.phoneLabel,
-      value: "+54 341 555 0123",
-      href: "tel:+543415550123",
+      value: "+5493416656170",
+      href: "tel:+5493416656170",
     },
     {
       icon: MapPin,
@@ -52,7 +52,7 @@ export function ContactContent() {
         title={t.contact.title}
         subtitle={t.contact.description}
         tagline={locale === "es" ? "Hablemos" : "Let's talk"}
-        backgroundImage="https://images.unsplash.com/photo-1540778670146-36e2bf77a891?q=80&w=2070"
+        backgroundImage= "/images/staff/about-hero.webp"
       />
 
       {/* Contact Section */}
