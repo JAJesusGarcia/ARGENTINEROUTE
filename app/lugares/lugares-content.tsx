@@ -57,7 +57,7 @@ export function LugaresContent() {
         title={`${t.places.title} ${t.places.titleHighlight}`}
         subtitle={t.places.description}
         tagline={t.nav.places}
-        backgroundImage="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070"
+        backgroundImage= "/images/staff/about-hero.webp"
       />
 
       {/* Filters Section */}
