@@ -6,6 +6,8 @@ export interface StaffMember {
   location?: string;
   age?: number;
   image: string;
+  instagram?: string;
+  linkedin?: string;
 }
 
 export const founder: StaffMember = {
@@ -24,7 +26,9 @@ export const staff: StaffMember[] = [
     roleEn: ["Managing Partner"],
     location: "San Lorenzo, Santa Fe",
     age: 35,
-    image: "/images/staff/jimena-micle.webp",
+    image: "/images/staff/jimena-micle2.webp",
+    instagram: "https://instagram.com/jimena",
+    linkedin: "https://linkedin.com/in/jimena"
   },
   {
     id: "2",
@@ -34,6 +38,8 @@ export const staff: StaffMember[] = [
     location: "San Lorenzo, Santa Fe",
     age: 24,
     image: "/images/staff/aneley-arbel.webp",
+    instagram: "https://instagram.com/aneley",
+    linkedin: "https://linkedin.com/in/aneley"
   },
   {
     id: "3",
@@ -43,6 +49,8 @@ export const staff: StaffMember[] = [
     location: "San Miguel, Tucumán",
     age: 47,
     image: "/images/staff/sara-rodriguez.webp",
+    instagram: "https://instagram.com/sara",
+    linkedin: "https://linkedin.com/in/sara"
   },
   {
     id: "4",
@@ -52,6 +60,8 @@ export const staff: StaffMember[] = [
     location: "San Nicolás, Buenos Aires",
     age: 47,
     image: "/images/staff/gaston-lemon.webp",
+    instagram: "https://instagram.com/gaston",
+    linkedin: "https://linkedin.com/in/gaston"
   },
   {
     id: "5",
@@ -61,6 +71,8 @@ export const staff: StaffMember[] = [
     location: "Santo Tomé, Santa Fe",
     age: 27,
     image: "/images/staff/vantina-ruggeri.webp",
+    instagram: "https://instagram.com/vantina",
+    linkedin: "https://linkedin.com/in/vantina"
   },
   {
     id: "6",
@@ -70,6 +82,8 @@ export const staff: StaffMember[] = [
     location: "Mendoza Capital",
     age: 37,
     image: "/images/staff/lazo-roxana.webp",
+    instagram: "https://instagram.com/roxana",
+    linkedin: "https://linkedin.com/in/roxana"
   },
   {
     id: "7",
@@ -79,6 +93,8 @@ export const staff: StaffMember[] = [
     location: "Salta Capital",
     age: 24,
     image: "/images/staff/yuliana-pastrana.webp",
+    instagram: "https://instagram.com/yuliana",
+    linkedin: "https://linkedin.com/in/yuliana"
   },
   {
     id: "8",
@@ -88,6 +104,8 @@ export const staff: StaffMember[] = [
     location: "Victoria, Entre Ríos",
     age: 32,
     image: "/images/staff/luciano-zeballos.webp",
+    instagram: "https://instagram.com/luciano",
+    linkedin: "https://linkedin.com/in/luciano"
   },
   {
     id: "9",
@@ -97,5 +115,7 @@ export const staff: StaffMember[] = [
     location: "Rosario, Santa Fe",
     age: 27,
     image: "/images/staff/jesus-garcia.webp",
+    instagram: "https://instagram.com/jesus",
+    linkedin: "https://linkedin.com/in/jesus"
   },
 ];

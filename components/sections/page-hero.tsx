@@ -9,6 +9,7 @@ interface PageHeroProps {
   subtitle?: string;
   tagline?: string;
   backgroundImage?: string;
+  backgroundVideo?: string;
   showBreadcrumb?: boolean;
   breadcrumbLabel?: string;
   breadcrumbHref?: string;
@@ -19,6 +20,7 @@ export function PageHero({
   subtitle,
   tagline,
   backgroundImage,
+  backgroundVideo,
   showBreadcrumb = false,
   breadcrumbLabel = "Volver",
   breadcrumbHref = "/",
@@ -27,14 +29,30 @@ export function PageHero({
     <section className="relative min-h-[60vh] md:min-h-[70vh] flex items-end pb-16 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: backgroundImage
-              ? `url('${backgroundImage}')`
-              : `url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070')`,
-          }}
-        />
+        {backgroundVideo ? (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src={backgroundVideo} type="video/mp4" />
+          </video>
+        ) : (
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url('${
+                backgroundImage ||
+                "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070"
+              }')`,
+            }}
+          />
+        )}
+
+        {/* Overlays */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/50 via-transparent to-background/50" />
       </div>
