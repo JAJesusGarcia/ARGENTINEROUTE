@@ -23,7 +23,7 @@ export const staff: StaffMember[] = [
     role: "Socia Gerente",
     roleEn: "Managing Partner",
     location: "San Lorenzo, Santa Fe",
-    age: 37,
+    age: 35,
     image: "/images/staff/jimena-micle.webp",
   },
   {
