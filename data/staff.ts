@@ -37,7 +37,7 @@ export const staff: StaffMember[] = [
     roleEn: ["Official Sales Agent"],
     location: "San Lorenzo, Santa Fe",
     age: 24,
-    image: "/images/staff/aneley-arbel.webp",
+    image: "/images/staff/aneley-arbel2.webp",
     instagram: "https://instagram.com/aneley",
     linkedin: "https://linkedin.com/in/aneley"
   },
@@ -48,7 +48,7 @@ export const staff: StaffMember[] = [
     roleEn: ["Sales & Logistics Coordinator"],
     location: "San Miguel, Tucumán",
     age: 47,
-    image: "/images/staff/sara-rodriguez.webp",
+    image: "/images/staff/sara-rodriguez2.webp",
     instagram: "https://instagram.com/sara",
     linkedin: "https://linkedin.com/in/sara"
   },
@@ -59,7 +59,7 @@ export const staff: StaffMember[] = [
     roleEn: ["Salesperson & Onboard Coordinator"],
     location: "San Nicolás, Buenos Aires",
     age: 47,
-    image: "/images/staff/gaston-lemon.webp",
+    image: "/images/staff/gaston-lemon2.webp",
     instagram: "https://instagram.com/gaston",
     linkedin: "https://linkedin.com/in/gaston"
   },
