@@ -34,12 +34,19 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
+            {/* <Link href="/" className="flex items-center gap-2 mb-4">
               <MapPin className="w-6 h-6 text-primary" />
               <span className="text-lg font-bold tracking-tight text-foreground">
                 ARGENTINE<span className="text-primary">ROUTE</span>
               </span>
-            </Link>
+            </Link> */}
+            <Link href="/" className="flex items-center gap-2 group">
+        <img
+           src="/images/logo3.webp"
+            alt="Argentine Route"
+            className="h-30 w-auto transition-transform duration-300 group-hover:scale-105"
+         />
+        </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
               {t.footer.description}
             </p>
