@@ -59,8 +59,15 @@ export function LugaresContent() {
         title={`${t.places.title} ${t.places.titleHighlight}`}
         subtitle={t.places.description}
         tagline={t.nav.places}
-        backgroundImage="/images/staff/about-hero.webp"
+        // backgroundImage="/images/staff/about-hero.webp"
+        backgroundVideo="/videos/video-hero.mp4"
       />
+      {/* <PageHero
+        title={`${t.about.title} ${t.about.titleHighlight}`}
+        subtitle={t.about.description}
+        tagline={t.nav.about}
+        backgroundVideo="/videos/video-hero.mp4"
+      /> */}
 
       {/* Filters Section */}
       <section className="py-4 bg-background sticky top-16 z-30 border-b border-border/50">

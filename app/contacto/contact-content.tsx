@@ -52,8 +52,15 @@ export function ContactContent() {
         title={t.contact.title}
         subtitle={t.contact.description}
         tagline={locale === "es" ? "Hablemos" : "Let's talk"}
-        backgroundImage= "/images/staff/about-hero.webp"
+        // backgroundImage= "/images/staff/about-hero.webp"
+        backgroundVideo="/videos/video-hero.mp4"
       />
+      {/* <PageHero
+        title={`${t.about.title} ${t.about.titleHighlight}`}
+        subtitle={t.about.description}
+        tagline={t.nav.about}
+        backgroundVideo="/videos/video-hero.mp4"
+      /> */}
 
       {/* Contact Section */}
       <section className="py-16 bg-background">
