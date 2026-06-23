@@ -70,7 +70,7 @@ export const staff: StaffMember[] = [
     roleEn: ["Official Sales Agent"],
     location: "Santo Tomé, Santa Fe",
     age: 27,
-    image: "/images/staff/vantina-ruggeri.webp",
+    image: "/images/staff/vantina-ruggeri2.webp",
     instagram: "https://instagram.com/vantina",
     linkedin: "https://linkedin.com/in/vantina"
   },
@@ -81,7 +81,7 @@ export const staff: StaffMember[] = [
     roleEn: ["Official Sales Agent"],
     location: "Mendoza Capital",
     age: 37,
-    image: "/images/staff/lazo-roxana.webp",
+    image: "/images/staff/lazo-roxana2.webp",
     instagram: "https://instagram.com/roxana",
     linkedin: "https://linkedin.com/in/roxana"
   },
@@ -92,7 +92,7 @@ export const staff: StaffMember[] = [
     roleEn: ["Official Sales Agent"],
     location: "Salta Capital",
     age: 24,
-    image: "/images/staff/yuliana-pastrana.webp",
+    image: "/images/staff/yuliana-pastrana2.webp",
     instagram: "https://instagram.com/yuliana",
     linkedin: "https://linkedin.com/in/yuliana"
   },
@@ -103,7 +103,7 @@ export const staff: StaffMember[] = [
     roleEn: ["Official Sales Agent", "Coordinator"],
     location: "Victoria, Entre Ríos",
     age: 32,
-    image: "/images/staff/luciano-zeballos.webp",
+    image: "/images/staff/luciano-zeballos2.webp",
     instagram: "https://instagram.com/luciano",
     linkedin: "https://linkedin.com/in/luciano"
   },
