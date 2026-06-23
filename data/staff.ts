@@ -114,7 +114,7 @@ export const staff: StaffMember[] = [
     roleEn: ["Web Developer"],
     location: "Rosario, Santa Fe",
     age: 27,
-    image: "/images/staff/jesus-garcia.webp",
+    image: "/images/staff/jesus-garcia2.webp",
     instagram: "https://instagram.com/jesus",
     linkedin: "https://linkedin.com/in/jesus"
   },
