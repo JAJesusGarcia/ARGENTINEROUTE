@@ -115,7 +115,7 @@ export const staff: StaffMember[] = [
     location: "Rosario, Santa Fe",
     age: 27,
     image: "/images/staff/jesus-garcia2.webp",
-    instagram: "https://instagram.com/jesus",
-    linkedin: "https://linkedin.com/in/jesus"
+    instagram: "https://www.instagram.com/jesusjuanandres/",
+    linkedin: "https://www.linkedin.com/in/jesusjagarcia/"
   },
 ];
