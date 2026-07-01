@@ -15,7 +15,7 @@ export const founder: StaffMember = {
   name: "Darío",
   role: ["Fundador & CEO"],
   roleEn: ["Founder & CEO"],
-  image: "/images/staff/founder.webp",
+  image: "/images/staff/founder2.webp",
 };
 
 export const staff: StaffMember[] = [
