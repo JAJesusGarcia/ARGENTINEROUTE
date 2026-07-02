@@ -99,7 +99,7 @@ export const places: Place[] = [
     description: "Imponente monumento nacional que conmemora la creación de la bandera argentina por Manuel Belgrano. Su torre de 70 metros ofrece vistas panorámicas de la ciudad y el río Paraná. Un símbolo de orgullo nacional y arquitectura monumental.",
     shortDescription: "Símbolo patrio junto al Paraná",
     image: "/images/places/monumento-bandera.webp",
-    galleryImages: ["/images/places/monumento-bandera.webp", "/images/provinces/rosario-hero.webp", "/images/places/monumento-bandera.webp"],
+    galleryImages: ["/images/gallery/monumento-gallery.webp", "/images/gallery/monumento-gallery-2.webp", "/images/gallery/monumento-gallery-3.webp"],
     rating: 4.8,
     tags: ["Histórico", "Arquitectura", "Vistas", "Cultura"],
     history: "Inaugurado en 1957, el monumento fue diseñado por los arquitectos Ángel Guido y Alejandro Bustillo. Se erige en el lugar donde Manuel Belgrano izó por primera vez la bandera argentina el 27 de febrero de 1812.",
