@@ -6,7 +6,8 @@ export interface Province {
   shortDescription: string;
   temperature: number; // fallback
   altitude: number;
-  weatherIcon: "sun" | "cloud" | "cloud-sun" | "snow" | "wind";
+  latitude: number;
+  longitude: number;
   image: string;
   heroImage: string;
   tagline: string;
@@ -16,8 +17,6 @@ export interface Province {
   landscapes: string;
   highlights: string[];
   order: number;
-  latitude: number;
-  longitude: number;
 }
 
 export const provinces: Province[] = [
@@ -31,7 +30,6 @@ export const provinces: Province[] = [
     altitude: 25,
     latitude: -32.9442,
     longitude: -60.6505,
-    weatherIcon: "sun",
     image: "/images/provinces/buenos-aires.webp",
     heroImage: "/images/provinces/buenos-aires-hero.webp",
     tagline: "Donde comienza la aventura",
@@ -52,7 +50,6 @@ export const provinces: Province[] = [
     altitude: 25,
     latitude: -32.9442,
     longitude: -60.6505,
-    weatherIcon: "sun",
     image: "/images/provinces/rosario.webp",
     heroImage: "/images/provinces/rosario-hero.webp",
     tagline: "Pasión, fútbol y bandera",
@@ -73,7 +70,6 @@ export const provinces: Province[] = [
     altitude: 390,
     latitude: -31.4201,
     longitude: -64.1888,
-    weatherIcon: "sun",
     image: "/images/provinces/cordoba.webp",
     heroImage: "/images/provinces/cordoba-hero.webp",
     tagline: "El corazón de Argentina",
@@ -94,7 +90,6 @@ export const provinces: Province[] = [
     altitude: 650,
     latitude: -31.5375,
     longitude: -68.5375,
-    weatherIcon: "sun",
     image: "/images/provinces/san-juan.webp",
     heroImage: "/images/provinces/san-juan-hero.webp",
     tagline: "Paisajes de otro planeta",
@@ -115,7 +110,6 @@ export const provinces: Province[] = [
     altitude: 498,
     latitude: -29.4139,
     longitude: -66.8558,
-    weatherIcon: "sun",
     image: "/images/provinces/la-rioja.webp",
     heroImage: "/images/provinces/la-rioja-hero.webp",
     tagline: "Cañones milenarios de roca roja",
@@ -136,7 +130,6 @@ export const provinces: Province[] = [
     altitude: 1187,
     latitude: -24.7833,
     longitude: -65.4167,
-    weatherIcon: "cloud-sun",
     image: "/images/provinces/salta.webp",
     heroImage: "/images/provinces/salta-hero.webp",
     tagline: "Tan linda que enamora",
@@ -157,7 +150,6 @@ export const provinces: Province[] = [
     altitude: 1259,
     latitude: -24.2167,
     longitude: -65.3,
-    weatherIcon: "cloud-sun",
     image: "/images/provinces/jujuy.webp",
     heroImage: "/images/provinces/jujuy-hero.webp",
     tagline: "Donde la tierra toca el cielo",
@@ -178,7 +170,6 @@ export const provinces: Province[] = [
     altitude: 180,
     latitude: -27.3667,
     longitude: -55.9167,
-    weatherIcon: "cloud-sun",
     image: "/images/provinces/misiones.webp",
     heroImage: "/images/provinces/misiones-hero.webp",
     tagline: "El rugido de la naturaleza",
