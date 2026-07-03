@@ -45,7 +45,7 @@ export const places: Place[] = [
     description: "El majestuoso Teatro Colón deslumbra como una de las salas líricas más importantes del planeta por su acústica perfecta. Su imponente arquitectura ecléctica y su interior suntuoso lo convierten en una joya cultural única en el mundo.",
     shortDescription: "Uno de los mejores teatros del mundo",
     image: "/images/places/teatro-colon.webp",
-    galleryImages: ["/images/places/teatro-colon.webp", "/images/places/teatro-colon.webp", "/images/places/teatro-colon.webp"],
+    galleryImages: ["/images/gallery/teatro-colon-gallery.webp", "/images/gallery/teatro-colon-gallery-2.webp", "/images/gallery/teatro-colon-gallery-3.webp"],
     rating: 4.9,
     tags: ["Histórico", "Arquitectura", "Cultura", "Música"],
     history: "El Teatro Colón fue inaugurado en 1908 y es considerado uno de los cinco mejores teatros del mundo por su acústica. Recibió a las figuras más importantes de la ópera, la danza y la música clásica a lo largo de su historia.",
