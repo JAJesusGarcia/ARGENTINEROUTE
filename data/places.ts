@@ -27,7 +27,7 @@ export const places: Place[] = [
     description: "El corazón de Buenos Aires late en el Obelisco, ícono de la ciudad sobre la Avenida 9 de Julio, la más ancha del mundo. Su silueta inconfundible domina el paisaje urbano porteño y es el punto de encuentro de millones de personas.",
     shortDescription: "El ícono porteño por excelencia",
     image: "/images/places/obelisco.webp",
-    galleryImages: ["/images/provinces/buenos-aires.webp", "/images/places/obelisco.webp", "/images/provinces/buenos-aires.webp"],
+    galleryImages: ["/images/gallery/obelisco-gallery.webp", "/images/gallery/obelisco-gallery-2.webp", "/images/gallery/obelisco-gallery-3.webp", "/images/gallery/obelisco-gallery-4.webp"],
     rating: 4.7,
     tags: ["Histórico", "Arquitectura", "Cultura", "Ciudad"],
     history: "El Obelisco fue erigido en 1936 para conmemorar el cuarto centenario de la primera fundación de Buenos Aires. Se ubica en la intersección de la Avenida 9 de Julio y la Avenida Corrientes.",
