@@ -43,7 +43,7 @@ export function AboutContent() {
         title={`${t.about.title} ${t.about.titleHighlight}`}
         subtitle={t.about.description}
         tagline={t.nav.about}
-        backgroundVideo="/videos/video-hero.mp4"
+        backgroundImage="/images/staff/about-hero.webp"
       />
 
       {/* Values Section */}
