@@ -35,14 +35,14 @@ export function MapSection() {
     ? [
         { label: "Destinos", value: "8" },
         { label: "Kilómetros", value: "4,500" },
-        { label: "Atracciones", value: "15+" },
-        { label: "Experiencias", value: "50+" },
+        { label: "Atracciones", value: "+15" },
+        { label: "Experiencias", value: "+50" },
       ]
     : [
         { label: "Destinations", value: "8" },
         { label: "Kilometers", value: "4,500" },
-        { label: "Attractions", value: "15+" },
-        { label: "Experiences", value: "50+" },
+        { label: "Attractions", value: "+15" },
+        { label: "Experiences", value: "+50" },
       ];
 
   const legend = locale === "es"
