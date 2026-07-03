@@ -4,7 +4,7 @@ export interface Province {
   slug: string;
   description: string;
   shortDescription: string;
-  temperature: number;
+  temperature: number; // fallback
   altitude: number;
   weatherIcon: "sun" | "cloud" | "cloud-sun" | "snow" | "wind";
   image: string;
@@ -16,6 +16,8 @@ export interface Province {
   landscapes: string;
   highlights: string[];
   order: number;
+  latitude: number;
+  longitude: number;
 }
 
 export const provinces: Province[] = [
@@ -27,6 +29,8 @@ export const provinces: Province[] = [
     shortDescription: "La capital cosmopolita",
     temperature: 22,
     altitude: 25,
+    latitude: -32.9442,
+    longitude: -60.6505,
     weatherIcon: "sun",
     image: "/images/provinces/buenos-aires.webp",
     heroImage: "/images/provinces/buenos-aires-hero.webp",
@@ -46,6 +50,8 @@ export const provinces: Province[] = [
     shortDescription: "Cuna de la bandera y de Messi",
     temperature: 24,
     altitude: 25,
+    latitude: -32.9442,
+    longitude: -60.6505,
     weatherIcon: "sun",
     image: "/images/provinces/rosario.webp",
     heroImage: "/images/provinces/rosario-hero.webp",
@@ -65,6 +71,8 @@ export const provinces: Province[] = [
     shortDescription: "La ciudad universitaria",
     temperature: 21,
     altitude: 390,
+    latitude: -31.4201,
+    longitude: -64.1888,
     weatherIcon: "sun",
     image: "/images/provinces/cordoba.webp",
     heroImage: "/images/provinces/cordoba-hero.webp",
@@ -84,6 +92,8 @@ export const provinces: Province[] = [
     shortDescription: "El Valle de la Luna",
     temperature: 20,
     altitude: 650,
+    latitude: -31.5375,
+    longitude: -68.5375,
     weatherIcon: "sun",
     image: "/images/provinces/san-juan.webp",
     heroImage: "/images/provinces/san-juan-hero.webp",
@@ -103,6 +113,8 @@ export const provinces: Province[] = [
     shortDescription: "Parque Nacional Talampaya",
     temperature: 23,
     altitude: 498,
+    latitude: -29.4139,
+    longitude: -66.8558,
     weatherIcon: "sun",
     image: "/images/provinces/la-rioja.webp",
     heroImage: "/images/provinces/la-rioja-hero.webp",
@@ -122,6 +134,8 @@ export const provinces: Province[] = [
     shortDescription: "Cafayate y sus bodegas",
     temperature: 22,
     altitude: 1187,
+    latitude: -24.7833,
+    longitude: -65.4167,
     weatherIcon: "cloud-sun",
     image: "/images/provinces/salta.webp",
     heroImage: "/images/provinces/salta-hero.webp",
@@ -141,6 +155,8 @@ export const provinces: Province[] = [
     shortDescription: "Cerros de siete colores",
     temperature: 19,
     altitude: 1259,
+    latitude: -24.2167,
+    longitude: -65.3,
     weatherIcon: "cloud-sun",
     image: "/images/provinces/jujuy.webp",
     heroImage: "/images/provinces/jujuy-hero.webp",
@@ -160,6 +176,8 @@ export const provinces: Province[] = [
     shortDescription: "Las Cataratas del Iguazú",
     temperature: 26,
     altitude: 180,
+    latitude: -27.3667,
+    longitude: -55.9167,
     weatherIcon: "cloud-sun",
     image: "/images/provinces/misiones.webp",
     heroImage: "/images/provinces/misiones-hero.webp",
