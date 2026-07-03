@@ -63,7 +63,7 @@ export const places: Place[] = [
     description: "Puerto Madero es el barrio más moderno de Buenos Aires, con sus diques reconvertidos, rascacielos de vidrio y el icónico Puente de la Mujer. Combina arquitectura contemporánea, gastronomía de primer nivel y la Reserva Ecológica frente al río.",
     shortDescription: "El barrio más moderno de la ciudad",
     image: "/images/places/puerto-madero.webp",
-    galleryImages: ["/images/places/puerto-madero.webp", "/images/provinces/buenos-aires-hero.webp", "/images/places/puerto-madero.webp"],
+    galleryImages: ["/images/gallery/puerto-madero-gallery.webp", "/images/gallery/puerto-madero-gallery-2.webp", "/images/gallery/puerto-madero-gallery-3.webp"],
     rating: 4.6,
     tags: ["Moderno", "Arquitectura", "Gastronomía", "Paseo"],
     history: "Puerto Madero fue el antiguo puerto de la ciudad, construido a fines del siglo XIX. Abandonado durante décadas, fue reconvertido en los años 90 en el barrio más exclusivo de Buenos Aires gracias a un ambicioso proyecto urbano.",
