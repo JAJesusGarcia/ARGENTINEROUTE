@@ -53,12 +53,21 @@ export function ProvinceContent({ province, places }: ProvinceContentProps) {
   const temperature = weather?.temperature ?? province.temperature;
   const feelsLike = weather?.feelsLike ?? province.temperature + 2;
 
+  const isEn = locale === "en";
+
+  const provinceDescription = isEn ? province.descriptionEn : province.description;
+  const provinceTagline = isEn ? province.taglineEn : province.tagline;
+  const provinceShortDescription = isEn
+    ? province.shortDescriptionEn
+    : province.shortDescription;
+  const provinceHighlights = isEn ? province.highlightsEn : province.highlights;
+
   const infoCards = [
-    { key: "climate", icon: Cloud, label: locale === "es" ? "Clima" : "Climate" },
-    { key: "culture", icon: Palette, label: locale === "es" ? "Cultura" : "Culture" },
-    { key: "gastronomy", icon: Utensils, label: locale === "es" ? "Gastronomía" : "Gastronomy" },
-    { key: "landscapes", icon: Mountain, label: locale === "es" ? "Paisajes" : "Landscapes" },
-  ];
+    { key: "climate", enKey: "climateEn", icon: Cloud, label: locale === "es" ? "Clima" : "Climate" },
+    { key: "culture", enKey: "cultureEn", icon: Palette, label: locale === "es" ? "Cultura" : "Culture" },
+    { key: "gastronomy", enKey: "gastronomyEn", icon: Utensils, label: locale === "es" ? "Gastronomía" : "Gastronomy" },
+    { key: "landscapes", enKey: "landscapesEn", icon: Mountain, label: locale === "es" ? "Paisajes" : "Landscapes" },
+  ] as const;
 
   const heroImage = province.heroImage;
 
@@ -66,8 +75,8 @@ export function ProvinceContent({ province, places }: ProvinceContentProps) {
     <>
       <PageHero
         title={province.name}
-        subtitle={province.tagline}
-        tagline={province.shortDescription}
+        subtitle={provinceTagline}
+        tagline={provinceShortDescription}
         backgroundImage={heroImage}
         showBreadcrumb
         breadcrumbLabel={
@@ -86,7 +95,7 @@ export function ProvinceContent({ province, places }: ProvinceContentProps) {
             className="max-w-3xl mx-auto text-center mb-16"
           >
             <p className="text-lg text-muted-foreground leading-relaxed">
-              {province.description}
+              {provinceDescription}
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 mt-8">
@@ -114,7 +123,8 @@ export function ProvinceContent({ province, places }: ProvinceContentProps) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {infoCards.map((card, index) => {
               const Icon = card.icon;
-              const content = province[card.key as keyof Province] as string;
+              const fieldKey = isEn ? card.enKey : card.key;
+              const content = province[fieldKey as keyof Province] as string;
 
               return (
                 <motion.div
@@ -154,7 +164,7 @@ export function ProvinceContent({ province, places }: ProvinceContentProps) {
             </h3>
 
             <div className="flex flex-wrap justify-center gap-3">
-              {province.highlights.map((highlight) => (
+              {provinceHighlights.map((highlight) => (
                 <span
                   key={highlight}
                   className="px-4 py-2 glass-subtle rounded-full text-sm text-muted-foreground"

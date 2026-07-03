@@ -13,20 +13,6 @@ import {
   type WeatherData,
 } from "@/lib/weather";
 
-const provinceCoordinates: Record<
-  string,
-  { latitude: number; longitude: number }
-> = {
-  "buenos-aires": { latitude: -34.6037, longitude: -58.3816 },
-  rosario: { latitude: -32.9442, longitude: -60.6505 },
-  cordoba: { latitude: -31.4201, longitude: -64.1888 },
-  "san-juan": { latitude: -31.5375, longitude: -68.5364 },
-  "la-rioja": { latitude: -29.4131, longitude: -66.8558 },
-  salta: { latitude: -24.7821, longitude: -65.4232 },
-  jujuy: { latitude: -24.1858, longitude: -65.2995 },
-  misiones: { latitude: -25.5972, longitude: -54.5786 },
-};
-
 function ProvinceCard({
   province,
   index,
@@ -37,6 +23,10 @@ function ProvinceCard({
   weather?: WeatherData;
 }) {
   const { locale } = useI18n();
+
+  // const name = locale === "es" ? province.name : province.nameEn;
+  const shortDescription =
+    locale === "es" ? province.shortDescription : province.shortDescriptionEn;
 
   const temperature = weather?.temperature ?? province.temperature;
   const feelsLike = weather?.feelsLike ?? province.temperature + 2;
@@ -68,17 +58,20 @@ function ProvinceCard({
                   <h3 className="text-xl font-bold text-foreground mb-1">
                     {province.name}
                   </h3>
+
                   <p className="text-xs text-muted-foreground line-clamp-1">
-                    {province.shortDescription}
+                    {shortDescription}
                   </p>
                 </div>
 
                 <div className="flex items-center gap-2 text-primary">
                   <WeatherIcon className="w-5 h-5" />
+
                   <div className="text-right">
                     <span className="block text-lg font-semibold text-foreground leading-none">
                       {temperature}°
                     </span>
+
                     <span className="block text-[10px] text-muted-foreground mt-1">
                       {weatherLabel}
                     </span>
@@ -123,13 +116,9 @@ export function ProvincesSection() {
     async function loadWeather() {
       const results = await Promise.all(
         provinces.map(async (province) => {
-          const coordinates = provinceCoordinates[province.slug];
-
-          if (!coordinates) return null;
-
           const weather = await getCurrentWeather(
-            coordinates.latitude,
-            coordinates.longitude
+            province.latitude,
+            province.longitude
           );
 
           if (!weather) return null;
