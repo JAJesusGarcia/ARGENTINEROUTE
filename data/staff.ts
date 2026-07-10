@@ -1,5 +1,7 @@
 import { cloudinary } from "@/lib/claudinary";
 
+//comentario de prueba para commit
+
 export interface StaffMember {
   id: string;
   name: string;
