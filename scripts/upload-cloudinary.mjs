@@ -26,6 +26,10 @@ const foldersToUpload = [
     localPath: path.join(projectRoot, "public", "videos"),
     cloudinaryPath: "ARGENTINEROUTE/videos",
   },
+  // {
+  // localPath: path.join(projectRoot, "public", "logos"),
+  // cloudinaryPath: "ARGENTINEROUTE/logos",
+  // },
 ];
 
 const allowedExtensions = new Set([

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { MapPin, Instagram, Facebook, Twitter, Mail } from "lucide-react";
 import { useI18n } from "@/lib/i18n/context";
+import { cloudinary } from "@/lib/claudinary";
 
 const socialLinks = [
   { href: "https://instagram.com", icon: Instagram, label: "Instagram" },
@@ -42,7 +43,7 @@ export function Footer() {
             </Link> */}
             <Link href="/" className="flex items-center gap-2 group">
         <img
-           src="/images/logo3.webp"
+            src={cloudinary("images/logos/logo3")}
             alt="Argentine Route"
             className="h-30 w-auto transition-transform duration-300 group-hover:scale-105"
          />

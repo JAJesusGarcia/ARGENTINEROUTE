@@ -8,6 +8,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { useI18n } from "@/lib/i18n/context";
+import { cloudinary } from "@/lib/claudinary";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +43,7 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" className="group shrink-0">
           <Image
-            src="/images/logo3.webp"
+            src={cloudinary("images/logos/logo3")}
             alt="Argentine Route"
             width={350}
             height={80 }
