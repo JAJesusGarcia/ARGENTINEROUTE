@@ -1,3 +1,5 @@
+import { cloudinary } from "@/lib/claudinary";
+
 export interface StaffMember {
   id: string;
   name: string;
@@ -15,7 +17,7 @@ export const founder: StaffMember = {
   name: "Darío",
   role: ["Fundador & CEO"],
   roleEn: ["Founder & CEO"],
-  image: "/images/staff/founder2.webp",
+  image: cloudinary("images/staff/founder2"),
 };
 
 export const staff: StaffMember[] = [
@@ -26,9 +28,9 @@ export const staff: StaffMember[] = [
     roleEn: ["Managing Partner"],
     location: "San Lorenzo, Santa Fe",
     age: 35,
-    image: "/images/staff/jimena-micle2.webp",
+    image: cloudinary("images/staff/jimena-micle2"),
     instagram: "https://instagram.com/jimena",
-    linkedin: "https://linkedin.com/in/jimena"
+    linkedin: "https://linkedin.com/in/jimena",
   },
   {
     id: "2",
@@ -37,9 +39,9 @@ export const staff: StaffMember[] = [
     roleEn: ["Official Sales Agent"],
     location: "San Lorenzo, Santa Fe",
     age: 24,
-    image: "/images/staff/aneley-arbel2.webp",
+    image: cloudinary("images/staff/aneley-arbel2"),
     instagram: "https://instagram.com/aneley",
-    linkedin: "https://linkedin.com/in/aneley"
+    linkedin: "https://linkedin.com/in/aneley",
   },
   {
     id: "3",
@@ -48,9 +50,9 @@ export const staff: StaffMember[] = [
     roleEn: ["Sales & Logistics Coordinator"],
     location: "San Miguel, Tucumán",
     age: 47,
-    image: "/images/staff/sara-rodriguez2.webp",
+    image: cloudinary("images/staff/sara-rodriguez2"),
     instagram: "https://instagram.com/sara",
-    linkedin: "https://linkedin.com/in/sara"
+    linkedin: "https://linkedin.com/in/sara",
   },
   {
     id: "4",
@@ -59,9 +61,9 @@ export const staff: StaffMember[] = [
     roleEn: ["Salesperson & Onboard Coordinator"],
     location: "San Nicolás, Buenos Aires",
     age: 47,
-    image: "/images/staff/gaston-lemon2.webp",
+    image: cloudinary("images/staff/gaston-lemon2"),
     instagram: "https://instagram.com/gaston",
-    linkedin: "https://linkedin.com/in/gaston"
+    linkedin: "https://linkedin.com/in/gaston",
   },
   {
     id: "5",
@@ -70,9 +72,9 @@ export const staff: StaffMember[] = [
     roleEn: ["Official Sales Agent"],
     location: "Santo Tomé, Santa Fe",
     age: 27,
-    image: "/images/staff/vantina-ruggeri2.webp",
+    image: cloudinary("images/staff/vantina-ruggeri2"),
     instagram: "https://instagram.com/vantina",
-    linkedin: "https://linkedin.com/in/vantina"
+    linkedin: "https://linkedin.com/in/vantina",
   },
   {
     id: "6",
@@ -81,9 +83,9 @@ export const staff: StaffMember[] = [
     roleEn: ["Official Sales Agent"],
     location: "Mendoza Capital",
     age: 37,
-    image: "/images/staff/lazo-roxana2.webp",
+    image: cloudinary("images/staff/lazo-roxana2"),
     instagram: "https://instagram.com/roxana",
-    linkedin: "https://linkedin.com/in/roxana"
+    linkedin: "https://linkedin.com/in/roxana",
   },
   {
     id: "7",
@@ -92,9 +94,9 @@ export const staff: StaffMember[] = [
     roleEn: ["Official Sales Agent"],
     location: "Salta Capital",
     age: 24,
-    image: "/images/staff/yuliana-pastrana2.webp",
+    image: cloudinary("images/staff/yuliana-pastrana2"),
     instagram: "https://instagram.com/yuliana",
-    linkedin: "https://linkedin.com/in/yuliana"
+    linkedin: "https://linkedin.com/in/yuliana",
   },
   {
     id: "8",
@@ -103,9 +105,9 @@ export const staff: StaffMember[] = [
     roleEn: ["Official Sales Agent", "Coordinator"],
     location: "Victoria, Entre Ríos",
     age: 32,
-    image: "/images/staff/luciano-zeballos2.webp",
+    image: cloudinary("images/staff/luciano-zeballos2"),
     instagram: "https://instagram.com/luciano",
-    linkedin: "https://linkedin.com/in/luciano"
+    linkedin: "https://linkedin.com/in/luciano",
   },
   {
     id: "9",
@@ -114,8 +116,8 @@ export const staff: StaffMember[] = [
     roleEn: ["Web Developer"],
     location: "Rosario, Santa Fe",
     age: 27,
-    image: "/images/staff/jesus-garcia2.webp",
+    image: cloudinary("images/staff/jesus-garcia2"),
     instagram: "https://www.instagram.com/jesusjuanandres/",
-    linkedin: "https://www.linkedin.com/in/jesusjagarcia/"
+    linkedin: "https://www.linkedin.com/in/jesusjagarcia/",
   },
 ];
