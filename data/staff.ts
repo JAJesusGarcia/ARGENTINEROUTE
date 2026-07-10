@@ -57,14 +57,14 @@ export const staff: StaffMember[] = [
   },
   {
     id: "4",
-    name: "Gastón Lemon",
+    name: "Gastón Lemos",
     role: ["Vendedor y Coordinador a Bordo"],
     roleEn: ["Salesperson & Onboard Coordinator"],
     location: "San Nicolás, Buenos Aires",
     age: 47,
     image: cloudinary("images/staff/gaston-lemon3"),
-    instagram: "https://instagram.com/gaston",
-    linkedin: "https://linkedin.com/in/gaston",
+    instagram: "https://www.instagram.com/gastonacho/",
+    linkedin: "https://www.linkedin.com/in/gaston-lemos-a98725167/",
   },
   {
     id: "5",
