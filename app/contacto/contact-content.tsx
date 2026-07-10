@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
 import { useTranslation } from "@/lib/i18n/context";
+import { cloudinary } from "@/lib/claudinary";
 
 export function ContactContent() {
   const { t, locale } = useTranslation();
@@ -52,8 +53,8 @@ export function ContactContent() {
         title={t.contact.title}
         subtitle={t.contact.description}
         tagline={locale === "es" ? "Hablemos" : "Let's talk"}
-        // backgroundImage= "/images/staff/about-hero.webp"
-        backgroundVideo="/videos/video-hero.mp4"
+        backgroundImage={cloudinary("images/staff/about-hero")}
+        // backgroundVideo={cloudinary("videos/video-hero.mp4")}
       />
       {/* <PageHero
         title={`${t.about.title} ${t.about.titleHighlight}`}

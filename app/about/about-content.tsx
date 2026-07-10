@@ -5,6 +5,7 @@ import { PageHero } from "@/components/sections/page-hero";
 import { founder, staff } from "@/data/staff";
 import { Heart, Compass, Award, MapPin, Instagram, Linkedin } from "lucide-react";
 import { useTranslation } from "@/lib/i18n/context";
+import { cloudinary } from "@/lib/claudinary";
 
 export function AboutContent() {
   const { t, locale } = useTranslation();
@@ -43,7 +44,7 @@ export function AboutContent() {
         title={`${t.about.title} ${t.about.titleHighlight}`}
         subtitle={t.about.description}
         tagline={t.nav.about}
-        backgroundImage="/images/staff/about-hero.webp"
+        backgroundImage={cloudinary("images/staff/about-hero")}
       />
 
       {/* Values Section */}

@@ -10,6 +10,7 @@ import { Search, Filter, ChevronDown, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { useTranslation } from "@/lib/i18n/context";
+import { cloudinary } from "@/lib/claudinary";
 
 export function LugaresContent() {
   const { t, locale } = useTranslation();
@@ -70,7 +71,7 @@ export function LugaresContent() {
         title={`${t.places.title} ${t.places.titleHighlight}`}
         subtitle={t.places.description}
         tagline={t.nav.places}
-        backgroundVideo="/videos/video-hero.mp4"
+        backgroundImage={cloudinary("images/staff/about-hero")}
       />
 
       <section className="py-4 bg-background sticky top-16 z-30 border-b border-border/50">
