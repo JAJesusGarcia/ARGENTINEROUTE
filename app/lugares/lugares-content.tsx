@@ -71,7 +71,8 @@ export function LugaresContent() {
         title={`${t.places.title} ${t.places.titleHighlight}`}
         subtitle={t.places.description}
         tagline={t.nav.places}
-        backgroundImage={cloudinary("images/staff/about-hero")}
+        // backgroundImage={cloudinary("images/staff/about-hero")}
+        backgroundVideo="https://res.cloudinary.com/dpadnzbyw/video/upload/v1769658149/Cinematic_hero_video_202601290042_1p065_r07kus.mp4"
       />
 
       <section className="py-4 bg-background sticky top-16 z-30 border-b border-border/50">
