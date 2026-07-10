@@ -68,14 +68,14 @@ export const staff: StaffMember[] = [
   },
   {
     id: "5",
-    name: "Valentina Ruggeri",
+    name: "Valentina Ruggenini",
     role: ["Vendedora Oficial"],
     roleEn: ["Official Sales Agent"],
     location: "Santo Tomé, Santa Fe",
-    age: 27,
+    age: 22,
     image: cloudinary("images/staff/vantina-ruggeri2"),
-    instagram: "https://instagram.com/vantina",
-    linkedin: "https://linkedin.com/in/vantina",
+    instagram: "https://www.instagram.com/_tinarouge/",
+    linkedin: "https://www.linkedin.com/in/vantina-ruggenini/",
   },
   {
     id: "6",
