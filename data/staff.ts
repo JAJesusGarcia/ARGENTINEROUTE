@@ -96,8 +96,8 @@ export const staff: StaffMember[] = [
     location: "Salta Capital",
     age: 24,
     image: cloudinary("images/staff/yuliana-pastrana2"),
-    instagram: "https://instagram.com/yuliana",
-    linkedin: "https://linkedin.com/in/yuliana",
+    instagram: "https://instagram.com/yuliana-pastrana",
+    linkedin: "https://linkedin.com/in/yuliana-pastrana",
   },
   {
     id: "8",
@@ -108,7 +108,7 @@ export const staff: StaffMember[] = [
     age: 32,
     image: cloudinary("images/staff/luciano-zeballos2"),
     instagram: "https://www.instagram.com/lucho.zeballos.turismo",
-    linkedin: "https://linkedin.com/in/luciano",
+    linkedin: "https://linkedin.com/in/luciano-zeballos-7a0b1b1a9",
   },
   {
     id: "9",
