@@ -38,11 +38,11 @@ export const staff: StaffMember[] = [
     name: "Aneley Arbel",
     role: ["Vendedora Oficial"],
     roleEn: ["Official Sales Agent"],
-    location: "San Lorenzo, Santa Fe",
+    location: "Capitan Bermudez, Santa Fe",
     age: 24,
     image: cloudinary("images/staff/aneley-arbel2"),
-    instagram: "https://instagram.com/aneley",
-    linkedin: "https://linkedin.com/in/aneley",
+    instagram: "https://www.instagram.com/anee_arb/",
+    linkedin: "https://www.linkedin.com/in/aneley-arbel/",
   },
   {
     id: "3",
@@ -107,7 +107,7 @@ export const staff: StaffMember[] = [
     location: "Victoria, Entre Ríos",
     age: 32,
     image: cloudinary("images/staff/luciano-zeballos2"),
-    instagram: "https://instagram.com/luciano",
+    instagram: "https://www.instagram.com/lucho.zeballos.turismo",
     linkedin: "https://linkedin.com/in/luciano",
   },
   {
