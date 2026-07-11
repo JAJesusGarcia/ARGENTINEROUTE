@@ -1,60 +1,124 @@
+import { cloudinary } from "@/lib/claudinary";
+
+
 export interface StaffMember {
   id: string;
   name: string;
-  role: string;
-  description: string;
+  role: string[];
+  roleEn: string[];
+  location?: string;
+  age?: number;
   image: string;
+  instagram?: string;
+  linkedin?: string;
 }
 
 export const founder: StaffMember = {
   id: "founder",
-  name: "Martín Aguirre",
-  role: "Fundador & CEO",
-  description: "Apasionado viajero con más de 15 años recorriendo cada rincón de Argentina. Martín fundó ARGENTINEROUTE con el sueño de compartir la belleza de su país con el mundo. Su visión es crear experiencias de viaje que transformen vidas y conecten a las personas con la naturaleza y cultura argentina.",
-  image: "/images/staff/founder.jpg"
+  name: "Darío",
+  role: ["Fundador & CEO"],
+  roleEn: ["Founder & CEO"],
+  image: cloudinary("images/staff/founder2"),
 };
 
 export const staff: StaffMember[] = [
   {
     id: "1",
-    name: "Lucía Fernández",
-    role: "Directora de Experiencias",
-    description: "Experta en diseñar itinerarios únicos y memorables.",
-    image: "/images/staff/lucia.jpg"
+    name: "Jimena Micle",
+    role: ["Socio Gerente"],
+    roleEn: ["Managing Partner"],
+    location: "San Lorenzo, Santa Fe",
+    age: 35,
+    image: cloudinary("images/staff/jimena-micle2"),
+    instagram: "https://instagram.com/jimena",
+    linkedin: "https://linkedin.com/in/jimena",
   },
-  {
-    id: "2",
-    name: "Carlos Mendoza",
-    role: "Guía Senior",
-    description: "Conocedor de cada sendero y secreto de la Patagonia.",
-    image: "/images/staff/carlos.jpg"
-  },
+  // {
+  //   id: "2",
+  //   name: "Aneley Arbel",
+  //   role: ["Vendedora Oficial"],
+  //   roleEn: ["Official Sales Agent"],
+  //   location: "Capitan Bermudez, Santa Fe",
+  //   age: 24,
+  //   image: cloudinary("images/staff/aneley-arbel2"),
+  //   instagram: "https://www.instagram.com/anee_arb/",
+  //   linkedin: "https://www.linkedin.com/in/aneley-arbel/",
+  // },
   {
     id: "3",
-    name: "Ana Belén Torres",
-    role: "Coordinadora de Viajes",
-    description: "Especialista en logística y atención al cliente.",
-    image: "/images/staff/ana.jpg"
+    name: "Sara Rodríguez",
+    role: ["Coordinadora de Ventas y Logística"],
+    roleEn: ["Sales & Logistics Coordinator"],
+    location: "Rosario, Santa Fe",
+    age: 44,
+    image: cloudinary("images/staff/sara-rodriguez2"),
+    instagram: "https://www.instagram.com/saraelerod?utm_source=qr",
+    linkedin: "https://www.linkedin.com/in/sara-elena-rodriguez-carbajal-a9a76010b/",
   },
   {
     id: "4",
-    name: "Diego Ramírez",
-    role: "Fotógrafo de Expediciones",
-    description: "Captura los momentos más épicos de cada aventura.",
-    image: "/images/staff/diego.jpg"
+    name: "Gastón Lemos",
+    role: ["Vendedor y Coordinador a Bordo"],
+    roleEn: ["Salesperson & Onboard Coordinator"],
+    location: "San Nicolás, Buenos Aires",
+    age: 47,
+    image: cloudinary("images/staff/gaston-lemon3"),
+    instagram: "https://www.instagram.com/gastonacho/",
+    linkedin: "https://www.linkedin.com/in/gaston-lemos-a98725167/",
   },
   {
     id: "5",
-    name: "Valentina Sosa",
-    role: "Especialista en Enoturismo",
-    description: "Sommelier certificada y amante de los viñedos mendocinos.",
-    image: "/images/staff/valentina.jpg"
+    name: "Valentina Ruggenini",
+    role: ["Vendedora Oficial"],
+    roleEn: ["Official Sales Agent"],
+    location: "Santo Tomé, Santa Fe",
+    age: 22,
+    image: cloudinary("images/staff/vantina-ruggeri2"),
+    instagram: "https://www.instagram.com/_tinarouge/",
+    linkedin: "https://www.linkedin.com/in/vantina-ruggenini/",
   },
   {
     id: "6",
-    name: "Nicolás Herrera",
-    role: "Guía de Montaña",
-    description: "Montañista profesional con certificación internacional.",
-    image: "/images/staff/nicolas.jpg"
-  }
+    name: "Lazo Roxana",
+    role: ["Vendedora Oficial"],
+    roleEn: ["Official Sales Agent"],
+    location: "Mendoza, Argentina",
+    age: 35,
+    image: cloudinary("images/staff/lazo-roxana2"),
+    instagram: "https://www.instagram.com/roxenlu/",
+    linkedin: "https://www.linkedin.com/in/roxanalazo/",
+  },
+  {
+    id: "7",
+    name: "Yuliana Pastrana",
+    role: ["Vendedora Oficial"],
+    roleEn: ["Official Sales Agent"],
+    location: "Salta Capital",
+    age: 24,
+    image: cloudinary("images/staff/yuliana-pastrana2"),
+    instagram: "https://instagram.com/yuliana-pastrana",
+    linkedin: "https://linkedin.com/in/yuliana-pastrana",
+  },
+  {
+    id: "8",
+    name: "Luciano A. Zeballos",
+    role: ["Vendedor Oficial y Coordinador a Bordo"],
+    roleEn: ["Official Sales Agent", "Coordinator"],
+    location: "Victoria, Entre Ríos",
+    age: 32,
+    image: cloudinary("images/staff/luciano-zeballos2"),
+    instagram: "https://www.instagram.com/lucho.zeballos.turismo",
+    linkedin: "https://linkedin.com/in/luciano-zeballos-7a0b1b1a9",
+  },
+  {
+    id: "9",
+    name: "Jesús García",
+    role: ["Desarrollador Web"],
+    roleEn: ["Web Developer"],
+    location: "Rosario, Santa Fe",
+    age: 27,
+    image: cloudinary("images/staff/jesus-garcia2"),
+    instagram: "https://www.instagram.com/jesusjuanandres/",
+    linkedin: "https://www.linkedin.com/in/jesusjagarcia/",
+  },
 ];

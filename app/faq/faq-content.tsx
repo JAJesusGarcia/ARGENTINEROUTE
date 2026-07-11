@@ -13,6 +13,7 @@ import { MessageCircle, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "@/lib/i18n/context";
+import { cloudinary } from "@/lib/claudinary";
 
 const faqItemsEn = [
   {
@@ -76,7 +77,7 @@ export function FAQContent() {
         title={`${t.faq.title} ${t.faq.titleHighlight}`}
         subtitle={t.faq.description}
         tagline="FAQ"
-        backgroundImage="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070"
+        backgroundImage={cloudinary("images/staff/about-hero")}
       />
 
       {/* FAQ Section */}

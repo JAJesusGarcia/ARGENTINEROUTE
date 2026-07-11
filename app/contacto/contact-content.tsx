@@ -9,6 +9,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin, Send, CheckCircle2 } from "lucide-react";
 import { useTranslation } from "@/lib/i18n/context";
+import { cloudinary } from "@/lib/claudinary";
 
 export function ContactContent() {
   const { t, locale } = useTranslation();
@@ -19,14 +20,14 @@ export function ContactContent() {
     {
       icon: Mail,
       label: t.contact.emailLabel,
-      value: "info@argentineroute.com",
-      href: "mailto:info@argentineroute.com",
+      value: "dariodanielbenitezsosa@gmail.com",
+      href: "mailto:dariodanielbenitezsosa@gmail.com",
     },
     {
       icon: Phone,
       label: t.contact.phoneLabel,
-      value: "+54 341 555 0123",
-      href: "tel:+543415550123",
+      value: "+5493416656170",
+      href: "tel:+5493416656170",
     },
     {
       icon: MapPin,
@@ -52,8 +53,15 @@ export function ContactContent() {
         title={t.contact.title}
         subtitle={t.contact.description}
         tagline={locale === "es" ? "Hablemos" : "Let's talk"}
-        backgroundImage="https://images.unsplash.com/photo-1540778670146-36e2bf77a891?q=80&w=2070"
+        backgroundImage={cloudinary("images/staff/about-hero")}
+        // backgroundVideo={cloudinary("videos/video-hero.mp4")}
       />
+      {/* <PageHero
+        title={`${t.about.title} ${t.about.titleHighlight}`}
+        subtitle={t.about.description}
+        tagline={t.nav.about}
+        backgroundVideo="/videos/video-hero.mp4"
+      /> */}
 
       {/* Contact Section */}
       <section className="py-16 bg-background">

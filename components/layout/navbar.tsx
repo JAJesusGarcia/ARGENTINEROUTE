@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, MapPin } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { useI18n } from "@/lib/i18n/context";
+import { cloudinary } from "@/lib/claudinary";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,26 +27,29 @@ export function Navbar() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
+
     window.addEventListener("scroll", handleScroll);
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "glass py-3" : "bg-transparent py-5"
+        scrolled ? "glass py-2" : "bg-transparent py-2"
       }`}
     >
       <nav className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="relative">
-            <MapPin className="w-7 h-7 text-primary transition-transform duration-300 group-hover:scale-110" />
-            <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </div>
-          <span className="text-xl font-bold tracking-tight text-foreground">
-            ARGENTINE<span className="text-primary">ROUTE</span>
-          </span>
+        <Link href="/" className="group shrink-0">
+          <Image
+            src={cloudinary("images/logos/logo3")}
+            alt="Argentine Route"
+            width={350}
+            height={80 }
+            priority
+            className="h-30 w-auto transition-transform duration-300 group-hover:scale-105"
+          />
         </Link>
 
         {/* Desktop Navigation */}
@@ -56,31 +61,40 @@ export function Navbar() {
               className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-200 relative group"
             >
               {link.label}
+
               <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-4/5 rounded-full" />
             </Link>
           ))}
         </div>
 
-        {/* Right side: Language Switcher + CTA */}
+        {/* Right side */}
         <div className="hidden md:flex items-center gap-3">
           <LanguageSwitcher />
+
           <Button
             asChild
             className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-6"
           >
-            <Link href="/contacto">{t.nav.bookTrip}</Link>
+            <Link href="/contacto">
+              {t.nav.bookTrip}
+            </Link>
           </Button>
         </div>
 
-        {/* Mobile: Language Switcher + Menu Button */}
+        {/* Mobile */}
         <div className="md:hidden flex items-center gap-2">
           <LanguageSwitcher />
+
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="p-2 text-foreground hover:text-primary transition-colors"
             aria-label={isOpen ? t.nav.closeMenu : t.nav.openMenu}
           >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
           </button>
         </div>
       </nav>
@@ -112,6 +126,7 @@ export function Navbar() {
                   </Link>
                 </motion.div>
               ))}
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -122,7 +137,10 @@ export function Navbar() {
                   asChild
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full"
                 >
-                  <Link href="/contacto" onClick={() => setIsOpen(false)}>
+                  <Link
+                    href="/contacto"
+                    onClick={() => setIsOpen(false)}
+                  >
                     {t.nav.bookTrip}
                   </Link>
                 </Button>

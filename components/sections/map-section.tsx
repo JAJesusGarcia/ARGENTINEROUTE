@@ -7,21 +7,25 @@ import { useI18n } from "@/lib/i18n/context";
 
 // Simplified Argentina map coordinates for each province
 const provincePositions: Record<string, { x: number; y: number }> = {
-  rosario: { x: 52, y: 42 },
-  mendoza: { x: 35, y: 48 },
-  cordoba: { x: 48, y: 44 },
-  tucuman: { x: 45, y: 32 },
-  salta: { x: 42, y: 22 },
-  jujuy: { x: 40, y: 15 },
+  "buenos-aires": { x: 58, y: 52 },
+  rosario: { x: 53, y: 46 },
+  cordoba: { x: 46, y: 42 },
+  "san-juan": { x: 32, y: 43 },
+  "la-rioja": { x: 38, y: 35 },
+  salta: { x: 42, y: 20 },
+  jujuy: { x: 40, y: 13 },
+  misiones: { x: 68, y: 30 },
 };
 
-// Route connections
+// Route connections following the 4500km journey order
 const routeConnections = [
+  ["buenos-aires", "rosario"],
   ["rosario", "cordoba"],
-  ["cordoba", "tucuman"],
-  ["tucuman", "salta"],
+  ["cordoba", "san-juan"],
+  ["san-juan", "la-rioja"],
+  ["la-rioja", "salta"],
   ["salta", "jujuy"],
-  ["rosario", "mendoza"],
+  ["jujuy", "misiones"],
 ];
 
 export function MapSection() {
@@ -29,21 +33,21 @@ export function MapSection() {
 
   const stats = locale === "es" 
     ? [
-        { label: "Provincias", value: "6" },
-        { label: "Kilómetros", value: "2,500+" },
-        { label: "Destinos", value: "25+" },
-        { label: "Experiencias", value: "50+" },
+        { label: "Destinos", value: "8" },
+        { label: "Kilómetros", value: "4,500" },
+        { label: "Atracciones", value: "+15" },
+        { label: "Experiencias", value: "+50" },
       ]
     : [
-        { label: "Provinces", value: "6" },
-        { label: "Kilometers", value: "2,500+" },
-        { label: "Destinations", value: "25+" },
-        { label: "Experiences", value: "50+" },
+        { label: "Destinations", value: "8" },
+        { label: "Kilometers", value: "4,500" },
+        { label: "Attractions", value: "+15" },
+        { label: "Experiences", value: "+50" },
       ];
 
   const legend = locale === "es"
-    ? { included: "Destino incluido", route: "Ruta del viaje", origin: "Rosario (origen)" }
-    : { included: "Included destination", route: "Travel route", origin: "Rosario (origin)" };
+    ? { included: "Destino incluido", route: "Ruta del viaje", origin: "Buenos Aires (origen)" }
+    : { included: "Included destination", route: "Travel route", origin: "Buenos Aires (origin)" };
 
   return (
     <section className="py-24 bg-card relative overflow-hidden">

@@ -3,8 +3,9 @@
 import { motion } from "framer-motion";
 import { PageHero } from "@/components/sections/page-hero";
 import { founder, staff } from "@/data/staff";
-import { Heart, Compass, Award } from "lucide-react";
+import { Heart, Compass, Award, MapPin, Instagram, Linkedin } from "lucide-react";
 import { useTranslation } from "@/lib/i18n/context";
+import { cloudinary } from "@/lib/claudinary";
 
 export function AboutContent() {
   const { t, locale } = useTranslation();
@@ -43,7 +44,7 @@ export function AboutContent() {
         title={`${t.about.title} ${t.about.titleHighlight}`}
         subtitle={t.about.description}
         tagline={t.nav.about}
-        backgroundImage="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2069"
+        backgroundImage={cloudinary("images/staff/about-hero")}
       />
 
       {/* Values Section */}
@@ -106,10 +107,8 @@ export function AboutContent() {
               <div className="grid grid-cols-1 md:grid-cols-2">
                 {/* Image */}
                 <div
-                  className="aspect-square md:aspect-auto bg-cover bg-center"
-                  style={{
-                    backgroundImage: `url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600')`,
-                  }}
+                  className="aspect-square bg-cover bg-center"
+                  style={{ backgroundImage: `url('${founder.image}')` }}
                 />
 
                 {/* Content */}
@@ -121,12 +120,12 @@ export function AboutContent() {
                     {founder.name}
                   </h2>
                   <p className="text-primary font-medium mb-4">
-                    {locale === "es" ? founder.role : "CEO & Founder"}
+                    {locale === "es" ? founder.role[0] : founder.roleEn[0]}
                   </p>
                   <p className="text-muted-foreground leading-relaxed">
                     {locale === "es"
-                      ? founder.description
-                      : "With over 15 years of experience in premium tourism, I have dedicated my life to showing the world the incredible beauty of Argentina."}
+                      ? "Visionario detrás de ARGENTINE ROUTE, apasionado por mostrar lo mejor del norte argentino a viajeros de todo el mundo."
+                      : "The visionary behind ARGENTINE ROUTE, passionate about showcasing the best of northern Argentina to travelers from all over the world."}
                   </p>
                 </div>
               </div>
@@ -166,25 +165,11 @@ export function AboutContent() {
                 viewport={{ once: true }}
                 className="glass rounded-2xl overflow-hidden group"
               >
-                {/* Image */}
-                <div className="relative aspect-[4/3] overflow-hidden">
+                {/* Image — aspect-square para fotos 1:1 */}
+                <div className="relative aspect-square overflow-hidden">
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                    style={{
-                      backgroundImage: `url('https://images.unsplash.com/photo-${
-                        index === 0
-                          ? "1494790108377-be9c29b29330"
-                          : index === 1
-                          ? "1472099645785-5658abf4ff4e"
-                          : index === 2
-                          ? "1438761681033-6461ffad8d80"
-                          : index === 3
-                          ? "1500648767791-00dcc994a43e"
-                          : index === 4
-                          ? "1534528741775-53994a69daeb"
-                          : "1507003211169-0a1dd7228f2d"
-                      }?q=80&w=400')`,
-                    }}
+                    style={{ backgroundImage: `url('${member.image}')` }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 </div>
@@ -195,11 +180,49 @@ export function AboutContent() {
                     {member.name}
                   </h3>
                   <p className="text-primary text-sm font-medium mb-2">
-                    {member.role}
+                    {(locale === "es" ? member.role : member.roleEn).join(" & ")}
                   </p>
-                  <p className="text-muted-foreground text-sm">
-                    {member.description}
-                  </p>
+                  {(member.location || member.age) && (
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-muted-foreground text-sm">
+                      {member.location && (
+                        <span className="inline-flex items-center gap-1">
+                          <MapPin className="w-3.5 h-3.5 text-primary/70" />
+                          {member.location}
+                        </span>
+                      )}
+                      {member.age && (
+                        <span>
+                          {member.age} {locale === "es" ? "años" : "yrs"}
+                        </span>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Social links */}
+                  {(member.instagram || member.linkedin) && (
+                    <div className="flex items-center gap-3 mt-3">
+                      {member.instagram && (
+                        <a
+                          href={member.instagram}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          <Instagram className="w-4 h-4" />
+                        </a>
+                      )}
+                      {member.linkedin && (
+                        <a
+                          href={member.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          <Linkedin className="w-4 h-4" />
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}

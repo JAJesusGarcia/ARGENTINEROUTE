@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { MapPin, Instagram, Facebook, Twitter, Mail } from "lucide-react";
 import { useI18n } from "@/lib/i18n/context";
+import { cloudinary } from "@/lib/claudinary";
 
 const socialLinks = [
   { href: "https://instagram.com", icon: Instagram, label: "Instagram" },
@@ -17,9 +18,9 @@ export function Footer() {
   const footerLinks = {
     explore: [
       { href: "/lugares", label: locale === "es" ? "Destinos" : "Destinations" },
-      { href: "/provincias/mendoza", label: "Mendoza" },
+      { href: "/provincias/buenos-aires", label: "Buenos Aires" },
       { href: "/provincias/salta", label: "Salta" },
-      { href: "/provincias/jujuy", label: "Jujuy" },
+      { href: "/provincias/misiones", label: "Misiones" },
     ],
     company: [
       { href: "/about", label: t.nav.about },
@@ -34,12 +35,19 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4">
+            {/* <Link href="/" className="flex items-center gap-2 mb-4">
               <MapPin className="w-6 h-6 text-primary" />
               <span className="text-lg font-bold tracking-tight text-foreground">
                 ARGENTINE<span className="text-primary">ROUTE</span>
               </span>
-            </Link>
+            </Link> */}
+            <Link href="/" className="flex items-center gap-2 group">
+        <img
+            src={cloudinary("images/logos/logo3")}
+            alt="Argentine Route"
+            className="h-30 w-auto transition-transform duration-300 group-hover:scale-105"
+         />
+        </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
               {t.footer.description}
             </p>

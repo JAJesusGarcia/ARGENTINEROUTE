@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X } from "lucide-react";
 import { useI18n } from "@/lib/i18n/context";
 
-const WHATSAPP_NUMBER = "5491123456789"; // Replace with actual number
-const DEFAULT_MESSAGE_ES = "Hola! Me gustaría obtener más información sobre sus viajes por Argentina.";
-const DEFAULT_MESSAGE_EN = "Hi! I'd like to get more information about your trips in Argentina.";
+const WHATSAPP_NUMBER = "5493416656170";
+const DEFAULT_MESSAGE_ES = "Hola! He visitado tu sitio web *ARGENTINEROUTE* y me gustaría obtener más información sobre tus viajes por Argentina.";
+const DEFAULT_MESSAGE_EN = "Hi! I visited your website *ARGENTINEROUTE* and I would like to get more information about your trips around Argentina..";
 
 export function WhatsAppButton() {
   const [isHovered, setIsHovered] = useState(false);

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   Cloud,
@@ -17,6 +18,12 @@ import { Button } from "@/components/ui/button";
 import { useTranslation } from "@/lib/i18n/context";
 import type { Province } from "@/data/provinces";
 import type { Place } from "@/data/places";
+import {
+  getCurrentWeather,
+  getWeatherIcon,
+  getWeatherLabel,
+  type WeatherData,
+} from "@/lib/weather";
 
 interface ProvinceContentProps {
   province: Province;
@@ -25,58 +32,61 @@ interface ProvinceContentProps {
 
 export function ProvinceContent({ province, places }: ProvinceContentProps) {
   const { t, locale } = useTranslation();
+  const [weather, setWeather] = useState<WeatherData | null>(null);
+
+  useEffect(() => {
+    async function loadWeather() {
+      const currentWeather = await getCurrentWeather(
+        province.latitude,
+        province.longitude
+      );
+
+      setWeather(currentWeather);
+    }
+
+    loadWeather();
+  }, [province.latitude, province.longitude]);
+
+  const WeatherIcon = getWeatherIcon(weather?.weatherCode);
+  const weatherLabel = getWeatherLabel(weather?.weatherCode, locale);
+
+  const temperature = weather?.temperature ?? province.temperature;
+  const feelsLike = weather?.feelsLike ?? province.temperature + 2;
+
+  const isEn = locale === "en";
+
+  const provinceDescription = isEn ? province.descriptionEn : province.description;
+  const provinceTagline = isEn ? province.taglineEn : province.tagline;
+  const provinceShortDescription = isEn
+    ? province.shortDescriptionEn
+    : province.shortDescription;
+  const provinceHighlights = isEn ? province.highlightsEn : province.highlights;
 
   const infoCards = [
-    { key: "climate", icon: Cloud, label: locale === "es" ? "Clima" : "Climate" },
-    { key: "culture", icon: Palette, label: locale === "es" ? "Cultura" : "Culture" },
-    { key: "gastronomy", icon: Utensils, label: locale === "es" ? "Gastronomía" : "Gastronomy" },
-    { key: "landscapes", icon: Mountain, label: locale === "es" ? "Paisajes" : "Landscapes" },
-  ];
+    { key: "climate", enKey: "climateEn", icon: Cloud, label: locale === "es" ? "Clima" : "Climate" },
+    { key: "culture", enKey: "cultureEn", icon: Palette, label: locale === "es" ? "Cultura" : "Culture" },
+    { key: "gastronomy", enKey: "gastronomyEn", icon: Utensils, label: locale === "es" ? "Gastronomía" : "Gastronomy" },
+    { key: "landscapes", enKey: "landscapesEn", icon: Mountain, label: locale === "es" ? "Paisajes" : "Landscapes" },
+  ] as const;
 
-  const imageIndex =
-    province.slug === "rosario"
-      ? 0
-      : province.slug === "mendoza"
-      ? 1
-      : province.slug === "salta"
-      ? 2
-      : province.slug === "jujuy"
-      ? 3
-      : province.slug === "cordoba"
-      ? 4
-      : 5;
-
-  const heroImage = `https://images.unsplash.com/photo-${
-    imageIndex === 0
-      ? "1558618666-fcd25c85cd64"
-      : imageIndex === 1
-      ? "1601042879364-f3947d07bea6"
-      : imageIndex === 2
-      ? "1506905925346-21bda4d32df4"
-      : imageIndex === 3
-      ? "1583683432858-bc8223c1f7e4"
-      : imageIndex === 4
-      ? "1540778670146-36e2bf77a891"
-      : "1501785888041-af3ef285b470"
-  }?q=80&w=2070`;
+  const heroImage = province.heroImage;
 
   return (
     <>
-      {/* Hero */}
       <PageHero
         title={province.name}
-        subtitle={province.tagline}
-        tagline={province.shortDescription}
+        subtitle={provinceTagline}
+        tagline={provinceShortDescription}
         backgroundImage={heroImage}
         showBreadcrumb
-        breadcrumbLabel={locale === "es" ? "Volver a provincias" : "Back to provinces"}
+        breadcrumbLabel={
+          locale === "es" ? "Volver a provincias" : "Back to provinces"
+        }
         breadcrumbHref="/#provincias"
       />
 
-      {/* Province Info */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
-          {/* Description */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -85,15 +95,24 @@ export function ProvinceContent({ province, places }: ProvinceContentProps) {
             className="max-w-3xl mx-auto text-center mb-16"
           >
             <p className="text-lg text-muted-foreground leading-relaxed">
-              {province.description}
+              {provinceDescription}
             </p>
 
-            {/* Quick Stats */}
-            <div className="flex justify-center gap-8 mt-8">
+            <div className="flex flex-wrap justify-center gap-6 mt-8">
+              <div className="flex items-center gap-2 text-foreground">
+                <WeatherIcon className="w-5 h-5 text-primary" />
+                <span className="font-medium">
+                  {temperature}°C · {weatherLabel}
+                </span>
+              </div>
+
               <div className="flex items-center gap-2 text-foreground">
                 <Thermometer className="w-5 h-5 text-primary" />
-                <span className="font-medium">{province.temperature}°C</span>
+                <span className="font-medium">
+                  {locale === "es" ? "Sensación" : "Feels"} {feelsLike}°C
+                </span>
               </div>
+
               <div className="flex items-center gap-2 text-foreground">
                 <MapPin className="w-5 h-5 text-primary" />
                 <span className="font-medium">{province.altitude}m</span>
@@ -101,11 +120,12 @@ export function ProvinceContent({ province, places }: ProvinceContentProps) {
             </div>
           </motion.div>
 
-          {/* Info Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {infoCards.map((card, index) => {
               const Icon = card.icon;
-              const content = province[card.key as keyof Province] as string;
+              const fieldKey = isEn ? card.enKey : card.key;
+              const content = province[fieldKey as keyof Province] as string;
+
               return (
                 <motion.div
                   key={card.key}
@@ -123,6 +143,7 @@ export function ProvinceContent({ province, places }: ProvinceContentProps) {
                       {card.label}
                     </h3>
                   </div>
+
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     {content}
                   </p>
@@ -131,7 +152,6 @@ export function ProvinceContent({ province, places }: ProvinceContentProps) {
             })}
           </div>
 
-          {/* Highlights */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -142,8 +162,9 @@ export function ProvinceContent({ province, places }: ProvinceContentProps) {
             <h3 className="text-lg font-semibold text-foreground mb-4">
               {t.provinceDetail.highlights}
             </h3>
+
             <div className="flex flex-wrap justify-center gap-3">
-              {province.highlights.map((highlight) => (
+              {provinceHighlights.map((highlight) => (
                 <span
                   key={highlight}
                   className="px-4 py-2 glass-subtle rounded-full text-sm text-muted-foreground"
@@ -156,7 +177,6 @@ export function ProvinceContent({ province, places }: ProvinceContentProps) {
         </div>
       </section>
 
-      {/* Places Section */}
       {places.length > 0 && (
         <section className="py-16 bg-card">
           <div className="container mx-auto px-4">
@@ -170,11 +190,13 @@ export function ProvinceContent({ province, places }: ProvinceContentProps) {
               <span className="inline-block px-4 py-1.5 mb-4 text-xs font-semibold uppercase tracking-wider text-primary bg-primary/10 rounded-full">
                 {t.provinceDetail.featuredPlaces}
               </span>
+
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 {locale === "es"
                   ? `Qué visitar en ${province.name}`
                   : `What to visit in ${province.name}`}
               </h2>
+
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 {locale === "es"
                   ? "Descubrí los lugares más impresionantes que esta provincia tiene para ofrecer."
@@ -201,7 +223,9 @@ export function ProvinceContent({ province, places }: ProvinceContentProps) {
                 className="rounded-full border-border/50 bg-secondary/50 hover:bg-secondary group"
               >
                 <Link href="/lugares">
-                  {locale === "es" ? "Ver todos los destinos" : "View all destinations"}
+                  {locale === "es"
+                    ? "Ver todos los destinos"
+                    : "View all destinations"}
                   <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
