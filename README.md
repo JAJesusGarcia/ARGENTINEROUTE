@@ -1,9 +1,12 @@
 # 🇦🇷 Argentine Route
 
 <p align="center">
-  <img src="public/images/logos/logo3.png" alt="Argentine Route" width="700">
+  <img
+    src="docs/images/argentineroute-readme-banner.webp"
+    alt="Argentine Route"
+    width="100%"
+  >
 </p>
-<h1 align="center">🇦🇷 Argentine Route</h1>
 
 <p align="center">
 Premium Tourism Platform to Discover Argentina
