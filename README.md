@@ -1,14 +1,18 @@
 # 🇦🇷 Argentine Route
 
 <p align="center">
-  <img src="https://www.argentineroute.com/favicon.ico" width="120" alt="Argentine Route Logo"/>
+  <img
+    src="https://res.cloudinary.com/dpadnzbyw/image/upload/f_auto,q_auto/ARGENTINEROUTE/logos/logo3"
+    alt="Argentine Route"
+    width="700"
+  />
 </p>
 
-<p align="center">
-  <strong>Premium Tourism Platform to Discover Argentina</strong>
-</p>
+<h1 align="center">🇦🇷 Argentine Route</h1>
 
 <p align="center">
+Premium Tourism Platform to Discover Argentina
+</p>
 
 ![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)
