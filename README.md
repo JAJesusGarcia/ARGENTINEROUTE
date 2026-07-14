@@ -1,11 +1,7 @@
 # 🇦🇷 Argentine Route
 
 <p align="center">
-  <img
-    src="https://res.cloudinary.com/dpadnzbyw/image/upload/f_auto,q_auto/ARGENTINEROUTE/logos/logo3"
-    alt="Argentine Route"
-    width="700"
-  />
+  <img src="./images/logos/logo3.webp" alt="Argentine Route" width="700">
 </p>
 
 <h1 align="center">🇦🇷 Argentine Route</h1>
