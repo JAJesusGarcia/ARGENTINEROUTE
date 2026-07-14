@@ -1,7 +1,7 @@
 # 🇦🇷 Argentine Route
 
 <p align="center">
-  <img src="./images/logos/logo3.png" alt="Argentine Route" width="700">
+  <img src="images/logos/logo3.webp" alt="Argentine Route" width="700">
 </p>
 
 <h1 align="center">🇦🇷 Argentine Route</h1>
