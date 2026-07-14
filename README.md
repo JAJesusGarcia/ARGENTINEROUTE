@@ -18,19 +18,11 @@ Premium Tourism Platform • Explore Argentina
 
 <p align="center">
 
-<a href="./README.en.md">
+🇺🇸 <a href="./README.en.md"><strong>English</strong></a>
 
-<img src="https://img.shields.io/badge/🇺🇸-English-1F6FEB?style=for-the-badge">
+&nbsp;&nbsp;•&nbsp;&nbsp;
 
-</a>
-
-&nbsp;
-
-<a href="./README.es.md">
-
-<img src="https://img.shields.io/badge/🇪🇸-Español-C62828?style=for-the-badge">
-
-</a>
+🇪🇸 <a href="./README.es.md"><strong>Español</strong></a>
 
 </p>
 
