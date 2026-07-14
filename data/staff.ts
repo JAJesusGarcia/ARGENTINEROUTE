@@ -18,7 +18,7 @@ export const founder: StaffMember = {
   name: "Darío",
   role: ["Fundador & CEO"],
   roleEn: ["Founder & CEO"],
-  image: cloudinary("images/staff/founder2"),
+  image: cloudinary("images/staff/founder3"),
 };
 
 export const staff: StaffMember[] = [

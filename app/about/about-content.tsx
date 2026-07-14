@@ -107,7 +107,7 @@ export function AboutContent() {
               <div className="grid grid-cols-1 md:grid-cols-2">
                 {/* Image */}
                 <div
-                  className="aspect-square bg-cover bg-center"
+                  className="aspect-square bg-cover"
                   style={{ backgroundImage: `url('${founder.image}')` }}
                 />
 
