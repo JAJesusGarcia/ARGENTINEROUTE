@@ -4,6 +4,7 @@ import Link from "next/link";
 import { MapPin, Instagram, Facebook, Twitter, Mail } from "lucide-react";
 import { useI18n } from "@/lib/i18n/context";
 import { cloudinary } from "@/lib/claudinary";
+import DeveloperSignature from "@/components/branding/signature";
 
 const socialLinks = [
   { href: "https://instagram.com", icon: Instagram, label: "Instagram" },
@@ -17,7 +18,10 @@ export function Footer() {
 
   const footerLinks = {
     explore: [
-      { href: "/lugares", label: locale === "es" ? "Destinos" : "Destinations" },
+      {
+        href: "/lugares",
+        label: locale === "es" ? "Destinos" : "Destinations",
+      },
       { href: "/provincias/buenos-aires", label: "Buenos Aires" },
       { href: "/provincias/salta", label: "Salta" },
       { href: "/provincias/misiones", label: "Misiones" },
@@ -42,12 +46,12 @@ export function Footer() {
               </span>
             </Link> */}
             <Link href="/" className="flex items-center gap-2 group">
-        <img
-            src={cloudinary("images/logos/logo3")}
-            alt="Argentine Route"
-            className="h-30 w-auto transition-transform duration-300 group-hover:scale-105"
-         />
-        </Link>
+              <img
+                src={cloudinary("images/logos/logo3")}
+                alt="Argentine Route"
+                className="h-30 w-auto transition-transform duration-300 group-hover:scale-105"
+              />
+            </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
               {t.footer.description}
             </p>
@@ -149,6 +153,7 @@ export function Footer() {
             </Link>
           </div>
         </div>
+        <DeveloperSignature clientName="Argentine Route" className="mt-8" />
       </div>
     </footer>
   );
