@@ -20,14 +20,14 @@ export function ContactContent() {
     {
       icon: Mail,
       label: t.contact.emailLabel,
-      value: "dariodanielbenitezsosa@gmail.com",
-      href: "mailto:dariodanielbenitezsosa@gmail.com",
+      value: "info@argentineroute.com",
+      href: "mailto:info@argentineroute.com",
     },
     {
       icon: Phone,
       label: t.contact.phoneLabel,
-      value: "+5493416656170",
-      href: "tel:+5493416656170",
+      value: "+54 9 3417 54-8158",
+      href: "tel:+5493417548158",
     },
     {
       icon: MapPin,
